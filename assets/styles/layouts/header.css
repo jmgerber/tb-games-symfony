@@ -1,0 +1,53 @@
+header{
+    height: 148px;
+    display: flex;
+    padding: 32px;
+    background-color: rgba(0, 0, 0, 0.15);
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 600;
+    & img {
+        width: 95px;
+        height: 82px;
+    }
+
+    & nav {
+        display: flex;
+        justify-content: space-between;
+        flex: 1;
+        font-size: 1.75rem;
+        align-items: center;
+
+        & .nav_pages_links {
+            display: flex;
+            margin-left: 100px;
+            gap: 36px;
+            & a {
+                padding: 16px;
+            }
+        }
+
+        & .nav_connection_links {
+            display: flex;
+            font-size: 1.625rem;
+            gap: 32px;
+            & a {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+
+    
+}
+
+.highlighted-button {
+    width: 148px;
+    height: 52px;
+    background-color: #FF8906;
+    border-radius: 6px;
+    
+}
