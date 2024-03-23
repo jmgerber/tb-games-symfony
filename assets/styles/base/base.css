@@ -1,0 +1,14 @@
+* {
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: #FFFFFE;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+body {
+    background-image: linear-gradient(rgba(15,14,23,0.9), rgba(15,14,23,0.9)), url('../../images/bg_img.jpg');
+    background-size: cover;
+}
