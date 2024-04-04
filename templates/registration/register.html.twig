@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TB Games - Inscription{% endblock %}
+
+{% block body %}
+<main>
+    {% for flash_error in app.flashes('verify_email_error') %}
+        <div role="alert">{{ flash_error }}</div>
+    {% endfor %}
+
+    <div class="title-container">
+        <img src="{{ asset('images/title_decorator_left.svg') }}" alt="title decorator">
+        <h1>Inscription</h1>
+        <img src="{{ asset('images/title_decorator_right.svg') }}" alt="title decorator">
+    </div>
+
+    {{ form_start(registrationForm, {'attr': {'class': 'form_register'}}) }}
+
+            {{ form_errors(registrationForm.email) }}
+            {{ form_row(registrationForm.email) }}
+
+            {{ form_errors(registrationForm.username) }}
+            {{ form_row(registrationForm.username) }}
+
+            {{ form_errors(registrationForm.plainPassword) }}
+            {{ form_row(registrationForm.plainPassword) }}
+
+            {{ form_errors(registrationForm.agreeTerms) }}
+            {{ form_row(registrationForm.agreeTerms) }}
+
+    {{ form_end(registrationForm)}}
+
+    <img src="{{ asset('images/next_section_separator.svg') }}" alt="Séparateur de section du site" class="next_section_separator">
+</main>
+{% endblock %}

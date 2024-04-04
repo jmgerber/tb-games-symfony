@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TB Games - Connexion{% endblock %}
+
+{% block body %}
+<main>
+    
+
+    {% if app.user %}
+        <div>
+            Tu es connecté en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app.logout') }}">Se déconnecter</a>
+        </div>
+    {% endif %}
+    <div class="title-container">
+        <img src="{{ asset('images/title_decorator_left.svg') }}" alt="Décorateur pour le titre">
+        <h1>Connexion</h1>
+        <img src="{{ asset('images/title_decorator_right.svg') }}" alt="Décorateur pour le titre">
+    </div>
+    <form class="form_login" method="post">
+        <div class="login-error">{{ error ? error.messageKey |trans(error.messageData, 'security') : '' }}</div>
+        <div class="form-group">
+            <label for="inputEmail">Email</label>
+            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" autocomplete="email" required autofocus>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword">Mot de passe</label>
+            <input type="password" name="password" id="inputPassword" autocomplete="current-password" required>
+        </div>
+        <a href="{{ path('app_forgot_password_request')}}" class="forgot_password">Mot de passe oublié ?</a>
+        <input type="hidden" name="_csrf_token"
+            value="{{ csrf_token('authenticate') }}"
+        >
+
+        <button type="submit">
+            Se connecter
+        </button>
+        <img src="{{ asset('images/section_separator_small.svg') }}" alt="Séparateur de section du site" class="section_separator_small">
+        <p class="no_account">Pas de compte ?</p>
+        <a href="{{ path('app.register') }}" class="register_button">S'inscrire</a>
+    </form>
+    <img src="{{ asset('images/next_section_separator.svg') }}" alt="Séparateur de section du site" class="next_section_separator">
+</main>
+{% endblock %}

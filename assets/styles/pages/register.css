@@ -1,0 +1,47 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form_register {
+    margin-top: 64px;
+    margin-bottom: 112px;
+
+    & .form-group.checkbox {
+        margin-top: 24px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        & label {
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        & input[type="checkbox"] {
+            display: grid;
+            place-content: center;
+            appearance: none;
+            width: 2rem;
+            height: 2rem;
+            border: 0.15rem solid #FFFFFE;
+            border-radius: 0;
+            margin: 0 0 0 12px;
+            cursor: pointer;
+        }
+
+        & input[type="checkbox"]::before {
+            content: "";
+            width: 1.3rem;
+            height: 1.3rem;
+            transform: scale(0);
+            transition: 120ms transform ease-in-out;
+            box-shadow: inset 2rem 2rem #BF9A7C;
+        }
+
+        & input[type="checkbox"]:checked::before {
+            transform: scale(1);
+        }
+    }
+}
