@@ -12,3 +12,8 @@ body {
     background-image: linear-gradient(rgba(15,14,23,0.9), rgba(15,14,23,0.9)), url('../../images/bg_img.jpg');
     background-size: cover;
 }
+
+.next_section_separator {
+    width: 106px;
+    height: 62px;
+}
