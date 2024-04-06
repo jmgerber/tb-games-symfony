@@ -3,7 +3,7 @@
 {% block title %}TB Games - Inscription{% endblock %}
 
 {% block body %}
-<main>
+
     {% for flash_error in app.flashes('verify_email_error') %}
         <div role="alert">{{ flash_error }}</div>
     {% endfor %}
@@ -19,5 +19,5 @@
     {{ form_end(registrationForm)}}
 
     <img src="{{ asset('images/next_section_separator.svg') }}" alt="Séparateur de section du site" class="next_section_separator">
-</main>
+    
 {% endblock %}

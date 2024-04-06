@@ -3,8 +3,6 @@
 {% block title %}TB Games - Connexion{% endblock %}
 
 {% block body %}
-<main>
-    
 
     {% if app.user %}
         <div>
@@ -39,5 +37,5 @@
         <a href="{{ path('app.register') }}" class="register_button">S'inscrire</a>
     </form>
     <img src="{{ asset('images/next_section_separator.svg') }}" alt="Séparateur de section du site" class="next_section_separator">
-</main>
+    
 {% endblock %}
