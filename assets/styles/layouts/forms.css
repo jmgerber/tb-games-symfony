@@ -38,6 +38,12 @@ form {
             border-radius: 4px;
             border: none;
         }
+
+        /* color error messages */
+        & li {
+            color: #e53f65;
+            padding-bottom: 6px;
+        }
     }
 
     & button[type="submit"] {

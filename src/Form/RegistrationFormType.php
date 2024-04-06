@@ -41,7 +41,7 @@ class RegistrationFormType extends AbstractType
                     ]),
                     new Length([
                         'min' => 6,
-                        'minMessage' => 'Votre mot de passe doit faire au minimum {{ limit }} caractères',
+                        'minMessage' => 'Votre mot de passe doit faire au minimum {{ limit }} caractères.',
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,
                     ]),
@@ -53,7 +53,7 @@ class RegistrationFormType extends AbstractType
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'Vous devez accepter les conditions d\'utilisation pour vous inscrire.',
+                        'message' => 'Vous devez accepter les conditions d\'utilisation pour vous inscrire',
                     ]),
                 ],
             ])
