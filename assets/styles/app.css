@@ -5,6 +5,7 @@
 @import url('./layouts/footer.css');
 @import url('./layouts/forms.css');
 
+@import url('./pages/index.css');
 @import url('./pages/login.css');
 @import url('./pages/register.css');
 @import url('./pages/reset_password.css');

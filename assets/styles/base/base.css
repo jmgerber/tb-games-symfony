@@ -21,9 +21,5 @@ main {
     flex-direction: column;
     align-items: center;
     flex: 1;
-}
-
-.next_section_separator {
-    width: 106px;
-    height: 62px;
+    overflow: hidden;
 }
