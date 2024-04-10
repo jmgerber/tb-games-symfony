@@ -4,7 +4,7 @@ footer {
     align-items: center;
     padding-top: 84px;
     padding-bottom: 32px;
-    background: linear-gradient(rgba(15, 13, 20, 0.1), rgba(0, 1, 9, 1));
+    background: linear-gradient(rgba(15, 13, 20, 0), rgba(0, 1, 9, 1));
 
     & .footer_links {
         display: flex;
@@ -20,5 +20,11 @@ footer {
         display: flex;
         justify-content: center;
         gap: 16px;
+    }
+
+    & .footer_separator {
+        width: 106px;
+        height: 62px;
+        margin-bottom: 124px;
     }
 }
