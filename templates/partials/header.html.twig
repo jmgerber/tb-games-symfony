@@ -7,6 +7,10 @@
             <li><a href="#">Demo</a></li>
             <li><a href="#">Nos services</a></li>
             <li><a href="#">Contact</a></li>
+        {% if app.user %}
+            <li><a href="{{ path('app.dashboard') }}">Tableau de bord</a></li>
+        {% endif %}
+            
         </ul>
         {% if app.user %}
             <div class="logged_user">
