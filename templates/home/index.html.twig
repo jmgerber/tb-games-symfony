@@ -3,43 +3,44 @@
 {% block title %}TB Games - Accueil{% endblock %}
 
 {% block body %}
+<div class="container center">
+    <section class="homepage_section">
+        <div class="text_container">
+            <h2 class="homepage_subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+            <p class="sub_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="img_container">
+            <img src="{{ asset('images/homepage_ai1.jpg') }}" alt="Illustration sur le thème des énigmes et puzzles">
+        </div>
+    </section>
 
-<section class="homepage_section">
-    <div class="text_container">
-        <h2 class="homepage_subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
-        <p class="sub_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </div>
-    <div class="img_container">
-        <img src="{{ asset('images/homepage_ai1.jpg') }}" alt="Illustration sur le thème des énigmes et puzzles">
-    </div>
-</section>
+    <img src="{{ asset('images/section_separator_large.svg')}}" alt="Séparateur de section">
 
-<img src="{{ asset('images/section_separator_large.svg')}}" alt="Séparateur de section">
+    <section class="homepage_section">
+        <div class="text_container">
+            <h2 class="homepage_subtitle">Lorem ipsum dolor sit amet, ameno dore consectetur adipiscing.</h2>
+            <p class="sub_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, amet de nadim amouk consectetur. Lorem ipsum, consectetur adipiscing elit.</p>
+            <a href="#" class="homepage_section_button">
+                <span>Partir à l'aventure</span>
+                <img src="{{ asset('images/arrow_right.svg') }}" alt="Flèche vers la droite">
+            </a>
+        </div>
+        <div class="img_container">
+            <img src="{{ asset('images/homepage_ai2.jpg') }}" alt="Illustration sur le thème des énigmes et puzzles">
+        </div>
+    </section>
 
-<section class="homepage_section">
-    <div class="text_container">
-        <h2 class="homepage_subtitle">Lorem ipsum dolor sit amet, ameno dore consectetur adipiscing.</h2>
-        <p class="sub_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, amet de nadim amouk consectetur. Lorem ipsum, consectetur adipiscing elit.</p>
-        <a href="#" class="homepage_section_button">
-            <span>Partir à l'aventure</span>
-            <img src="{{ asset('images/arrow_right.svg') }}" alt="Flèche vers la droite">
-        </a>
-    </div>
-    <div class="img_container">
-        <img src="{{ asset('images/homepage_ai2.jpg') }}" alt="Illustration sur le thème des énigmes et puzzles">
-    </div>
-</section>
+    <img src="{{ asset('images/section_separator_large.svg')}}" alt="Séparateur de section">
 
-<img src="{{ asset('images/section_separator_large.svg')}}" alt="Séparateur de section">
-
-<section class="homepage_section">
-    <div class="text_container">
-        <h2 class="homepage_subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
-        <p class="sub_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet.</p>
-    </div>
-    <div class="img_container">
-        <img src="{{ asset('images/homepage_ai3.png') }}" alt="Illustration sur le thème des énigmes et puzzles">
-    </div>
-</section>
+    <section class="homepage_section">
+        <div class="text_container">
+            <h2 class="homepage_subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+            <p class="sub_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet.</p>
+        </div>
+        <div class="img_container">
+            <img src="{{ asset('images/homepage_ai3.png') }}" alt="Illustration sur le thème des énigmes et puzzles">
+        </div>
+    </section>
+</div>
 
 {% endblock %}
