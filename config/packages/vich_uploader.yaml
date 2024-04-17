@@ -1,0 +1,8 @@
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+       gamesPictures:
+           uri_prefix: /images/gamesPicture
+           upload_destination: '%kernel.project_dir%/public/images/gamesPictures'
+           namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
