@@ -1,6 +1,8 @@
 @import url('./base/base.css');
 @import url('./base/typography.css');
 
+@import url('./components/game_card.css');
+
 @import url('./layouts/header.css');
 @import url('./layouts/footer.css');
 @import url('./layouts/forms.css');
