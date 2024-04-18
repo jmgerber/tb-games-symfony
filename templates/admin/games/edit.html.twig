@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Escape game : {{ game.title }}{% endblock %}
+
+{% block body %}
+    <div class="title-container">
+        <img src="{{ asset('images/title_decorator_left.svg') }}" alt="title decorator">
+        <h1>Edition de "{{ game.title }}"</h1>
+        <img src="{{ asset('images/title_decorator_right.svg') }}" alt="title decorator">
+    </div>
+    
+
+    {{ form(form) }}
+
+{% endblock %}

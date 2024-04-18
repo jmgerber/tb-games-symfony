@@ -10,6 +10,9 @@
         {% if app.user %}
             <li><a href="{{ path('app.dashboard') }}">Tableau de bord</a></li>
         {% endif %}
+        {% if is_granted('ROLE_ADMIN') %}
+            <li><a href="{{ path('admin.games.index') }}">Panel d'administration</a></li>
+        {% endif %}
             
         </ul>
         {% if app.user %}
