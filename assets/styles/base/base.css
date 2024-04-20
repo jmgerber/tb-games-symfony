@@ -29,3 +29,22 @@ main {
         align-items: center;
     }
 }
+
+.highlighted-button {
+    width: 264px;
+    height: 62px;
+    background-color: #FF8906;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1.625rem;
+    border: none;
+    cursor: pointer;
+    margin-top: 36px;
+
+    &.small-btn {
+        width: 148px;
+        height: 52px;
+        font-size: 1.25rem;
+        margin-top: 0;
+    }
+}

@@ -29,12 +29,12 @@
             <ul class="nav_connection_links {{app.current_route == 'app.register' ? 'register' : '' }}">
                 {% if app.current_route == 'app.register' %}
                     <p class="have_account">Vous avez un compte ?</p>
-                    <li class="highlighted-button"><a href="{{ path('app.login') }}">Se connecter</a></li>
+                    <li class="highlighted-button small-btn"><a href="{{ path('app.login') }}">Se connecter</a></li>
                 {% elseif app.current_route == 'app.login' %}
                     
                 {% else %}
                     <li><a href="{{ path('app.login') }}">Se connecter</a></li>
-                    <li class="highlighted-button"><a href="{{ path('app.register') }}">S'inscrire</a></li>
+                    <li class="highlighted-button small-btn"><a href="{{ path('app.register') }}">S'inscrire</a></li>
                 {% endif %}
             </ul>
         {% endif %}
