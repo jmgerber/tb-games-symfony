@@ -15,15 +15,15 @@ header{
         display: flex;
         justify-content: space-between;
         flex: 1;
-        font-size: 1.75rem;
+        font-size: 1.25rem;
         align-items: center;
 
         & .nav_pages_links {
             display: flex;
-            margin-left: 100px;
-            gap: 36px;
+            margin-left: 54px;
+            gap: 16px;
             & a {
-                padding: 16px;
+                padding: 12px;
             }
         }
 
