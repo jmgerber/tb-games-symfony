@@ -12,3 +12,5 @@
 @import url('./pages/register.css');
 @import url('./pages/reset_password.css');
 @import url('./pages/dashboard.css');
+@import url('./pages/admin/games_list.css');
+@import url('./pages/admin/create_game.css');

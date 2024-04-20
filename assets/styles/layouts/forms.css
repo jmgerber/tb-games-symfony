@@ -39,23 +39,30 @@ form {
             border: none;
         }
 
+        & input[type="range"] {
+            padding: 0;
+        }
+
+        & input[type="file"] {
+            background-color: #BF9A7C;
+        }
+
+        & textarea {
+            resize: none;
+            height: 180px;
+            color: #0F0E17;
+            font-size: 0.9rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            padding: 8px;
+            border-radius: 6px;
+        }
+
         /* color error messages */
         & li {
             color: #e53f65;
             padding-bottom: 6px;
         }
-    }
-
-    & button[type="submit"] {
-        width: 264px;
-        height: 62px;
-        background-color: #FF8906;
-        border-radius: 6px;
-        font-weight: 600;
-        font-size: 1.625rem;
-        border: none;
-        margin-top: 36px;
-        cursor: pointer;
     }
 }
 

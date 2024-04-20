@@ -1,0 +1,78 @@
+.games_container {
+    margin-inline: 64px;
+}
+
+.create_button {
+    display: flex;
+    align-items: center;
+    background-color: #BF9A7C;
+    width: 260px;
+    height: 48px;
+    justify-content: space-between;
+    border-radius: 6px;
+    padding: 8px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-top: 32px;
+    img {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+.games_list_container {
+    margin-top: 16px;
+
+    table {
+        border-collapse: collapse;
+    }
+
+    table, tr, th, td {
+        border: 1px solid #BF9A7C;
+        padding: 8px;
+    }
+
+    thead {
+        height: 64px;
+    }
+
+    tbody {
+        text-align: center;
+    }
+
+    img {
+        width: 128px;
+        height: 128px;
+        object-fit: cover;
+    }
+
+    .actions_cell {
+        display: flex;
+        align-items: center;
+        border: none;
+        height: 152px;
+        width: 200px;
+        justify-content: center;
+        gap: 0.5vw;
+    }
+
+    .action_button {
+        width: 92px;
+        height: 36px;
+        border: none;
+        border-radius: 6px;
+        font-size: 0.95rem;
+        font-weight: 500;
+
+        &.edit {
+            background-color: #FF8906;
+            display: grid;
+            place-items: center;
+        }
+
+        &.delete {
+            background-color: #e53f65;
+            cursor: pointer;
+        }
+    }
+}

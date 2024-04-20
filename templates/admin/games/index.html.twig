@@ -3,46 +3,46 @@
 {% block title %}Panel d'administration{% endblock %}
 
 {% block body %}
-    <div class="title-container">
-        <img src="{{ asset('images/title_decorator_left.svg') }}" alt="title decorator">
-        <h1>Liste des escape games</h1>
-        <img src="{{ asset('images/title_decorator_right.svg') }}" alt="title decorator">
-    </div>
-    <a href="{{ path('admin.games.create') }}">Créer une game</a>
-    <section class="games_list_container">
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Titre</th>
-                    <th>Temps max</th>
-                    <th>Difficulté</th>
-                    <th>Illustration</th>
-                    <th>Description</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for game in games %}
+    <div class="games_container">
+        <div class="title-container">
+            <img src="{{ asset('images/title_decorator_left.svg') }}" alt="title decorator">
+            <h1>Liste des escape games</h1>
+            <img src="{{ asset('images/title_decorator_right.svg') }}" alt="title decorator">
+        </div>
+        <a href="{{ path('admin.games.create') }}" class="create_button">Créer un escape game <img src="{{ asset('images/plus-square.svg') }}" alt="Icône plus"></a>
+        <section class="games_list_container">
+            <table>
+                <thead>
                     <tr>
-                        <td>{{ game.id }}</td>
-                        <td>{{ game.title }}</td>
-                        <td>{{ game.time }}</td>
-                        <td>{{ game.difficulty }}</td>
-                        <td>
-                            <img src="{{ vich_uploader_asset(game, 'pictureFile') }}" alt="{{ game.title }}">
-                        </td>
-                        <td>{{ game.description }}</td>
-                        <td>
-                            <a class="edit_button" href="{{ path('admin.games.edit', {id: game.id}) }}">Editer</a>
-                            <form action="{{ path('admin.games.delete', {id: game.id}) }}" method="POST">
-                                <input type="hidden" name="_method" value="DELETE">
-                                <button type="submit" class="delete_button">Supprimer</button>
-                            </form>
-                        </td>
+                        <th>Titre</th>
+                        <th>Temps max</th>
+                        <th>Difficulté</th>
+                        <th>Illustration</th>
+                        <th>Description</th>
+                        <th>Actions</th>
                     </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </section>
+                </thead>
+                <tbody>
+                    {% for game in games %}
+                        <tr>
+                            <td>{{ game.title }}</td>
+                            <td>{{ game.time }}</td>
+                            <td>{{ game.difficulty }}</td>
+                            <td>
+                                <img src="{{ vich_uploader_asset(game, 'pictureFile') }}" alt="{{ game.title }}">
+                            </td>
+                            <td>{{ game.description }}</td>
+                            <td class="actions_cell">
+                                <a class="action_button edit" href="{{ path('admin.games.edit', {id: game.id}) }}">Editer</a>
+                                <form action="{{ path('admin.games.delete', {id: game.id}) }}" method="POST">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button type="submit" class="action_button delete">Supprimer</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </div>
 {% endblock %}

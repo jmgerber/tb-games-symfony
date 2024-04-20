@@ -20,10 +20,12 @@ class GamesType extends AbstractType
     {
         $builder
             ->add('title', TextType::class, [
-                'label' => 'Titre'
+                'label' => 'Titre',
+                'row_attr' => ['class' => 'form-group'],
             ])
             ->add('time', IntegerType::class, [
                 'label' => 'Temps maximum',
+                'row_attr' => ['class' => 'form-group']
             ])
             ->add('difficulty', RangeType::class, [
                 'attr' => [
@@ -31,13 +33,18 @@ class GamesType extends AbstractType
                     'max' => 5
                 ],
                 'label' => 'Difficulté',
+                'row_attr' => ['class' => 'form-group']
             ])
             ->add('pictureFile', FileType::class, [
                 'label' => 'Illustration',
+                'row_attr' => ['class' => 'form-group']
             ])
-            ->add('description', TextareaType::class)
+            ->add('description', TextareaType::class, [
+                'row_attr' => ['class' => 'form-group']
+            ])
             ->add('save', SubmitType::class, [
-                'label' => 'Enregistrer'
+                'label' => 'Enregistrer',
+                'attr' => ['class' => 'highlighted-button'],
             ]);
     }
 
