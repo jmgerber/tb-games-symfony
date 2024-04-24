@@ -4,8 +4,8 @@ namespace App\Form;
 
 use App\Entity\Games;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\RangeType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -41,6 +41,16 @@ class GamesType extends AbstractType
             ])
             ->add('description', TextareaType::class, [
                 'row_attr' => ['class' => 'form-group']
+            ])
+            ->add('riddle', CollectionType::class, [
+                'entry_type' => RiddleType::class,
+                'by_reference' => false,
+                'allow_add' => true,
+                'allow_delete' => true,
+                'prototype' => true,
+                'attr' => [
+                    'data-controller' => 'form-collection'
+                ]
             ])
             ->add('save', SubmitType::class, [
                 'label' => 'Enregistrer',

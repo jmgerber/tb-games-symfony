@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\GamesRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -38,6 +40,14 @@ class Games
 
     #[ORM\Column(length: 1024)]
     private ?string $description = null;
+
+    #[ORM\OneToMany(targetEntity: Riddle::class, mappedBy: 'game', orphanRemoval: true, cascade: ['persist'])]
+    private Collection $riddle;
+
+    public function __construct()
+    {
+        $this->riddle = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -111,6 +121,36 @@ class Games
     public function setDescription(string $description): static
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Riddle>
+     */
+    public function getRiddle(): Collection
+    {
+        return $this->riddle;
+    }
+
+    public function addRiddle(Riddle $riddle): static
+    {
+        if (!$this->riddle->contains($riddle)) {
+            $this->riddle->add($riddle);
+            $riddle->setGame($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRiddle(Riddle $riddle): static
+    {
+        if ($this->riddle->removeElement($riddle)) {
+            // set the owning side to null (unless already changed)
+            if ($riddle->getGame() === $this) {
+                $riddle->setGame(null);
+            }
+        }
 
         return $this;
     }
