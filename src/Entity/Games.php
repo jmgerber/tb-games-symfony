@@ -41,6 +41,9 @@ class Games
     #[ORM\Column(length: 1024)]
     private ?string $description = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?\DateTimeImmutable $updatedAt = null;
+
     #[ORM\OneToMany(targetEntity: Riddle::class, mappedBy: 'game', orphanRemoval: true, cascade: ['persist'])]
     private Collection $riddle;
 
@@ -107,10 +110,12 @@ class Games
         return $this->pictureFile;
     }
 
-    public function setPictureFile(?File $pictureFile): static
+    public function setPictureFile(?File $pictureFile = null): void
     {
         $this->pictureFile = $pictureFile;
-        return $this;
+        if (null !== $pictureFile) {
+            $this->updatedAt = new \DateTimeImmutable();
+        }
     }
 
     public function getDescription(): ?string

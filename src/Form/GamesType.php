@@ -37,19 +37,27 @@ class GamesType extends AbstractType
             ])
             ->add('pictureFile', FileType::class, [
                 'label' => 'Illustration',
-                'row_attr' => ['class' => 'form-group']
+                'row_attr' => ['class' => 'form-group'],
+                'mapped' => true,
+                'required' => false,
             ])
             ->add('description', TextareaType::class, [
                 'row_attr' => ['class' => 'form-group']
             ])
             ->add('riddle', CollectionType::class, [
                 'entry_type' => RiddleType::class,
+                'entry_options' => [
+                    'label_attr' => ['class' => 'riddle_main_label'],
+                ],
                 'by_reference' => false,
                 'allow_add' => true,
                 'allow_delete' => true,
                 'prototype' => true,
+                'label' => 'Enigmes',
+                'label_attr' => ['class' => 'riddles_label'],
+                'row_attr' => ['class' => 'riddles_container'],
                 'attr' => [
-                    'data-controller' => 'form-collection'
+                    'data-controller' => 'form-collection',
                 ]
             ])
             ->add('save', SubmitType::class, [

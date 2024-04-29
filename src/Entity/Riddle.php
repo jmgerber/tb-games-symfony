@@ -30,6 +30,9 @@ class Riddle
     #[Assert\Image()]
     private ?File $pictureFile = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?\DateTimeImmutable $updatedAt = null;
+
     #[ORM\ManyToOne(inversedBy: 'riddle')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Games $game = null;
@@ -80,10 +83,12 @@ class Riddle
         return $this->pictureFile;
     }
 
-    public function setPictureFile(?File $pictureFile): static
+    public function setPictureFile(?File $pictureFile = null): void
     {
         $this->pictureFile = $pictureFile;
-        return $this;
+        if (null !== $pictureFile) {
+            $this->updatedAt = new \DateTimeImmutable();
+        }
     }
 
     public function getGame(): ?Games

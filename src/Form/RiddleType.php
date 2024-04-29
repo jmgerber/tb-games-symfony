@@ -27,6 +27,8 @@ class RiddleType extends AbstractType
             ->add('pictureFile', FileType::class, [
                 'label' => 'Illustration de l\'énigme',
                 'row_attr' => ['class' => 'form-group'],
+                'mapped' => true,
+                'required' => false,
             ]);
     }
 
