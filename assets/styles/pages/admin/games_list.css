@@ -25,11 +25,21 @@
 
     table {
         border-collapse: collapse;
+        width: 100%;
     }
 
     table, tr, th, td {
         border: 1px solid #BF9A7C;
         padding: 8px;
+    }
+
+    /* Actions column style */
+    th:last-child {
+        width: 254px;
+    }
+
+    td {
+        height: 148px;
     }
 
     thead {
@@ -48,11 +58,9 @@
 
     .actions_cell {
         display: flex;
-        align-items: center;
         border: none;
-        height: 152px;
-        width: 200px;
         justify-content: center;
+        align-items: center;
         gap: 0.5vw;
     }
 
