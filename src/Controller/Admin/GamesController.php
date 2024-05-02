@@ -13,18 +13,41 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Routing\Requirement\Requirement;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
+/**
+ * This GamesController manages the list of escape games, their creation,
+ * edition and deletion.
+ * Only Admins have access to these routes.
+ */
 #[Route('/admin/games', name: 'admin.games.')]
 #[IsGranted('ROLE_ADMIN')]
 class GamesController extends AbstractController
 {
+    /**
+     * Displays a list of all escape games.
+     *
+     * @param GamesRepository $repository
+     *
+     * @return Response
+     */
     #[Route(name: 'index')]
     public function index(GamesRepository $repository): Response
     {
-        return $this->render('admin/games/index.html.twig', [
-            'games' => $repository->findAll()
-        ]);
+        return $this->render(
+            'admin/games/index.html.twig',
+            [
+                'games' => $repository->findAll()
+            ]
+        );
     }
 
+    /**
+     * Creates a new escape game.
+     *
+     * @param Request                $request
+     * @param EntityManagerInterface $em
+     *
+     * @return Response
+     */
     #[Route('/create', name: 'create')]
     public function create(Request $request, EntityManagerInterface $em)
     {
@@ -38,18 +61,37 @@ class GamesController extends AbstractController
             return $this->redirectToRoute('admin.games.index');
         }
 
-        return $this->render('admin/games/create.html.twig', [
-            'form' => $form,
-        ]);
+        return $this->render(
+            'admin/games/create.html.twig',
+            [
+                'form' => $form,
+            ]
+        );
     }
 
-    #[Route('/{id}', name: 'edit', methods: ['GET', 'POST'], requirements: ['id' => Requirement::DIGITS])]
-    public function edit(Request $request, Games $game, EntityManagerInterface $em): Response
-    {
+    /**
+     * Edits an existing escape game.
+     * If no game is found with the provided id, we create a new Game object
+     *
+     * @param Request                $request
+     * @param Games                  $game
+     * @param EntityManagerInterface $em
+     *
+     * @return Response
+     */
+    #[Route(
+        '/{id}',
+        name: 'edit',
+        methods: ['GET', 'POST'],
+        requirements: ['id' => Requirement::DIGITS]
+    )]
+    public function edit(
+        Request $request,
+        Games $game,
+        EntityManagerInterface $em
+    ): Response {
         if (!$game) {
-            throw $this->createNotFoundException(
-                "Aucun escape game n'a été trouvé avec l'id " . $game->getId()
-            );
+            $game = new Games(); // Create a null object
         }
 
         $form = $this->createForm(GamesType::class, $game);
@@ -66,13 +108,29 @@ class GamesController extends AbstractController
             return $this->redirectToRoute('admin.games.index');
         }
 
-        return $this->render('admin/games/edit.html.twig', [
-            'game' => $game,
-            'form' => $form,
-        ]);
+        return $this->render(
+            'admin/games/edit.html.twig',
+            [
+                'game' => $game,
+                'form' => $form,
+            ]
+        );
     }
 
-    #[Route('/{id}', name: 'delete', methods: ['DELETE'], requirements: ['id' => Requirement::DIGITS])]
+    /**
+     * Deletes an existing escape game.
+     *
+     * @param Games                  $game
+     * @param EntityManagerInterface $em
+     *
+     * @return Response
+     */
+    #[Route(
+        '/{id}',
+        name: 'delete',
+        methods: ['DELETE'],
+        requirements: ['id' => Requirement::DIGITS]
+    )]
     public function delete(Games $game, EntityManagerInterface $em): Response
     {
         $em->remove($game);
