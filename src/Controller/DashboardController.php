@@ -25,10 +25,12 @@ class DashboardController extends AbstractController
     #[Route('/dashboard', name: 'app.dashboard')]
     public function index(GamesRepository $repository): Response
     {
+        $games = $repository->findAll();
+
         return $this->render(
             'dashboard/index.html.twig',
             [
-                'games' => $repository->findAll()
+                'games' => $games
             ]
         );
     }
