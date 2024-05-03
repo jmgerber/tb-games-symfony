@@ -3,7 +3,7 @@
 {% block title %}Bonjour, {{ app.user.username }}{% endblock %}
 
 {% block body %}
-<div class="container dashboard_container">
+<div class="container dashboard_container" data-controller="dashboard-modal">
     <h1 class="dashboard_title">Mon tableau de bord</h1>
     <section class="dashboard_section">
         <aside>
@@ -17,11 +17,11 @@
             <div class="friend_list">
                 <h2 class="friend_list_title">Liste d'amis</h2>
                 <ul>
-                <li>Ami1</li>
-                <li>Ami2</li>
-                <li>Ami3</li>
-                <li>Ami4</li>
-                <li>Ami5</li>
+                    <li>Ami1</li>
+                    <li>Ami2</li>
+                    <li>Ami3</li>
+                    <li>Ami4</li>
+                    <li>Ami5</li>
                 </ul>
             </div>
         </aside>
@@ -30,6 +30,7 @@
         {% for game in games %}
             {{ include('partials/game_card.html.twig') }}
         {% endfor %}
+        {{ include('partials/modal.html.twig') }}
         </div>
     </section>
 </div>

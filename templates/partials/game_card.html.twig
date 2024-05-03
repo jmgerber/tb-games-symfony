@@ -1,5 +1,5 @@
 {% block card %}
-    <article class="game_card">
+    <article class="game_card" data-target="#modal" data-action="show" data-card-id="{{ game.id }}">
         <div class="game_picture_container">
             <img src="{{ vich_uploader_asset(game, 'pictureFile') }}" alt="{{ game.title }}" class="game_picture">
         </div>

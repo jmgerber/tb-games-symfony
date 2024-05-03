@@ -1,0 +1,110 @@
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal_content {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    z-index: 2;
+    padding: 20px;
+    background-color: #BF9A7C;
+    border-radius: 12px;
+  }
+
+  .modal_content * {
+    color: black;
+  }
+
+  .modal_header {
+    display: flex;
+    justify-content: flex-end;
+
+    .close_modal_btn {
+      border: none;
+      width: 40px;
+      height: 40px;
+      background-color: #e64b4b;
+      font-size: 2rem;
+      border-radius: 4px;
+      cursor: pointer;
+
+      & > span {
+        display: block;
+        height: 40px;
+        color: #fff;
+      }
+    }
+  }
+
+  .modal_body {
+    display: flex;
+    gap: 16px;
+  }
+
+  .modal_picture {
+    width: min(24vw, 360px);
+    height: min(24vw, 360px);
+    object-fit: cover;
+    border: 2px solid #fff;
+  }
+
+  .modal_content_text {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+
+    .modal_title {
+      font-size: calc(1vw + 0.5rem);
+    }
+
+    .modal_description {
+      font-size: calc(0.7vw + 0.4rem);
+      text-align: justify;
+    }
+
+    .modal_difficulty {
+      display: flex;
+      gap: 4px;
+    
+      span {
+        color: #fff;
+        font-size: 1.6rem;
+      }
+    }
+
+    .modal_time {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      .time_text {
+        font-size: 1.1rem;
+        font-weight: 600;
+      }
+
+      .time_clock {
+        height: 32px;
+        width: 32px;
+        filter: brightness(2);
+      }
+    }
+
+    .start_button {
+      align-self: flex-end;
+      background-color: #FF8906;
+      padding: 12px 16px;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+  }

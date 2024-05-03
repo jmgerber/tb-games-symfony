@@ -9,6 +9,7 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Serializer\Attribute\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
@@ -20,18 +21,23 @@ class Games
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['games.show'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['games.show'])]
     private ?string $title = null;
 
     #[ORM\Column]
+    #[Groups(['games.show'])]
     private ?int $time = null;
 
     #[ORM\Column(type: Types::SMALLINT)]
+    #[Groups(['games.show'])]
     private ?int $difficulty = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['games.show'])]
     private ?string $picture = null;
 
     #[Vich\UploadableField(mapping: 'gamesPictures', fileNameProperty: 'picture')]
@@ -39,6 +45,7 @@ class Games
     private ?File $pictureFile = null;
 
     #[ORM\Column(length: 1024)]
+    #[Groups(['games.show'])]
     private ?string $description = null;
 
     #[ORM\Column(nullable: true)]
