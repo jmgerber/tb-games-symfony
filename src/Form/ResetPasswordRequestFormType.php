@@ -26,7 +26,8 @@ class ResetPasswordRequestFormType extends AbstractType
                 ],
             ])
             ->add('send', SubmitType::class, [
-                'label' => 'Envoyer'
+                'label' => 'Envoyer',
+                'attr' => ['class' => 'highlighted-button small-btn'],
             ]);
     }
 

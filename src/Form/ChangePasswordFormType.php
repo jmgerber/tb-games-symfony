@@ -47,7 +47,8 @@ class ChangePasswordFormType extends AbstractType
                 'mapped' => false,
             ])
             ->add('save', SubmitType::class, [
-                'label' => 'Valider'
+                'label' => 'Valider',
+                'attr' => ['class' => 'highlighted-button']
             ]);
     }
 
