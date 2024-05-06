@@ -44,7 +44,7 @@ export default class extends Controller {
 
         this.modalTime.textContent = cardData.time + "min"
 
-        this.startButton.setAttribute('href', '../games/' + cardData.id);
+        this.startButton.setAttribute('href', '../game/' + cardData.id);
 
         this.modal.style.display = 'flex'
     }
