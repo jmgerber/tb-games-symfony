@@ -3,6 +3,7 @@
 
 @import url('./components/game_card.css');
 @import url('./components/modal.css');
+@import url('./components/riddles.css');
 
 @import url('./layouts/header.css');
 @import url('./layouts/footer.css');

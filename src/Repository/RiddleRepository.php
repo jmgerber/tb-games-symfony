@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Games;
 use App\Entity\Riddle;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -19,6 +20,16 @@ class RiddleRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Riddle::class);
+    }
+
+    public function findByGame(Games $game)
+    {
+        return $this->createQueryBuilder('e')
+            ->where('e.game = :game')
+            ->setParameter('game', $game)
+            ->orderBy('e.id', 'ASC')
+            ->getQuery()
+            ->getResult();
     }
 
     //    /**

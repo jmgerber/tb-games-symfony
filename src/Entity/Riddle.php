@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\RiddleRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Serializer\Attribute\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
@@ -15,15 +16,19 @@ class Riddle
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['riddle.show'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['riddle.show'])]
     private ?string $question = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['riddle.show'])]
     private ?string $answer = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['riddle.show'])]
     private ?string $picture = null;
 
     #[Vich\UploadableField(mapping: 'riddlesPictures', fileNameProperty: 'picture')]
