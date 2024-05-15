@@ -1,49 +1,65 @@
 import { Controller } from '@hotwired/stimulus';
 
+/**
+ * This Stimulus controller manages a dynamic form for adding and removing riddle entries.
+ */
 export default class extends Controller {
     connect() {
         this.index = this.element.childElementCount
-        const btn = document.createElement('button')
-        btn.setAttribute('class', 'btn_riddle btn_add')
-        btn.innerText = 'Ajouter une énigme'
-        btn.setAttribute('type', 'button')
-        btn.addEventListener('click', this.addElement)
+
+        const addButton = document.createElement('button')
+        addButton.classList.add('btn_riddle', 'btn_add')
+        addButton.textContent = 'Ajouter une énigme'
+        addButton.type = 'button'
+        addButton.addEventListener('click', this.addElement)
+
         this.element.childNodes.forEach(this.addDeleteButton)
-        this.element.append(btn)
+        this.element.append(addButton)
+
         this.element.childNodes.forEach((child) => {
             if (child.nodeName === 'DIV') {
-                child.setAttribute('class', 'riddle_single_form')
-                child.firstChild.innerText = 'Enigme ' + (this.index + 1)
+                child.classList.add('riddle_single_form')
+                child.firstChild.textContent = `Enigme ${this.index + 1}`
             }
         })        
     }
 
     /**
-     * @param {MouseEvent} e 
+     * Add a new riddle entry to the form.
+     * 
+     * @param {MouseEvent} e The click event object triggered by the "Ajouter une énigme" button.
      */
     addElement = (e) => {
         e.preventDefault()
-        const element = document.createRange().createContextualFragment(
-            this.element.dataset['prototype']
-                .replaceAll('__name__label__', 'Enigme ' + (this.index + 1))
+
+        const prototypeContent = this.element.dataset['prototype'] 
+        const newElement = document.createRange()
+            .createContextualFragment(
+                prototypeContent
+                .replaceAll('__name__label__', `Enigme ${this.index + 1}`)
                 .replaceAll('__name__', this.index)
         ).firstElementChild
-        element.setAttribute('class', 'riddle_single_form')
-        this.addDeleteButton(element)
+
+        newElement.classList.add('riddle_single_form')
+        this.addDeleteButton(newElement)
         this.index++
-        e.currentTarget.insertAdjacentElement('beforebegin', element)
+
+        e.currentTarget.insertAdjacentElement('beforebegin', newElement)
     }
 
     /**
-     * @param {HTMLElement} item 
+     * Add a delete button to a riddle entry in the form.
+     * 
+     * @param {HTMLElement} item The riddle entry element to which the button will be added.
      */
     addDeleteButton = (item) => {
-        const btn = document.createElement('button')
-        btn.setAttribute('class', 'btn_riddle btn_delete')
-        btn.innerText = '✖'
-        btn.setAttribute('type', 'button')
-        item.append(btn)
-        btn.addEventListener('click', e => {
+        const deleteButton = document.createElement('button')
+        deleteButton.classList.add('btn_riddle', 'btn_delete')
+        deleteButton.textContent = '✖'
+        deleteButton.type = 'button'
+
+        item.append(deleteButton)
+        deleteButton.addEventListener('click', (e) => {
             e.preventDefault()
             item.remove()
         })
