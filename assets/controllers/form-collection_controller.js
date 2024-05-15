@@ -16,10 +16,10 @@ export default class extends Controller {
         this.element.childNodes.forEach(this.addDeleteButton)
         this.element.append(addButton)
 
-        this.element.childNodes.forEach((child) => {
+        this.element.childNodes.forEach((child, index) => {
             if (child.nodeName === 'DIV') {
                 child.classList.add('riddle_single_form')
-                child.firstChild.textContent = `Enigme ${this.index + 1}`
+                child.firstChild.textContent = `Enigme ${index + 1}`
             }
         })        
     }
@@ -31,12 +31,12 @@ export default class extends Controller {
      */
     addElement = (e) => {
         e.preventDefault()
-
-        const prototypeContent = this.element.dataset['prototype'] 
+        this.index = this.element.childElementCount
+        const prototypeContent = this.element.dataset['prototype']
         const newElement = document.createRange()
             .createContextualFragment(
                 prototypeContent
-                .replaceAll('__name__label__', `Enigme ${this.index + 1}`)
+                .replaceAll('__name__label__', `Enigme ${this.index}`)
                 .replaceAll('__name__', this.index)
         ).firstElementChild
 
