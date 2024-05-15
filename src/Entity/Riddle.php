@@ -24,7 +24,6 @@ class Riddle
     private ?string $question = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['riddle.show'])]
     private ?string $answer = null;
 
     #[ORM\Column(length: 255, nullable: true)]
