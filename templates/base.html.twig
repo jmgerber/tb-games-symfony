@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}{% endblock %}</title>
-        <link rel="icon" type="image/png" href="favicon.png">
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
-    </head>
-    <body>
-        {% include('./partials/header.html.twig') %}
-        <main>
-            {% block body %}{% endblock %}
-        </main>
-        {% include('./partials/footer.html.twig') %}
-    </body>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}{% endblock %}
+		</title>
+		<link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}">
+		{% block javascripts %}
+			{% block importmap %}
+				{{ importmap('app') }}
+			{% endblock %}
+		{% endblock %}
+	</head>
+	<body>
+		{% include('./partials/header.html.twig') %}
+		<main>
+			{% block body %}{% endblock %}
+		</main>
+		{% include('./partials/footer.html.twig') %}
+	</body>
 </html>
