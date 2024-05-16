@@ -1,4 +1,5 @@
 import { Controller } from '@hotwired/stimulus';
+import gameDifficultyShow from './difficulty-display_controller.js';
 
 /**
  * This Stimulus controller manages a game card container, fetching game data and displaying modal details on card click.
@@ -18,16 +19,26 @@ export default class extends Controller {
             console.error('Error fetching game data:', error)
         }
 
-        this.card = this.element;
         this.modal = document.getElementById('modal')
         this.initializeModalElements()
 
-        // Add click event listener to all cards within the container
+        
         const cards = document.querySelectorAll('.game_card')
-        cards.forEach(card => card.addEventListener('click', this.showCardDetails.bind(this)))
+        cards.forEach(card => {
+            // Diplays the difficulty of each game with stars
+            const difficultyDisplay = card.querySelector('.game_difficulty')
+            const difficultyLevel = difficultyDisplay.dataset['difficulty']
+            gameDifficultyShow(difficultyLevel).forEach(element => {
+                difficultyDisplay.appendChild(element)
+            })
+
+            // Adds a click event to each game card to display the modal
+            card.addEventListener('click', this.showModalDetails.bind(this))
+        })
+
         this.closeButton.addEventListener('click', this.hideModal.bind(this))
     }
-    
+
     /**
      * Initializes references to modal elements within the DOM.
      */
@@ -46,7 +57,7 @@ export default class extends Controller {
      * 
      * @param {Event} event The click event object triggered by a game card.
      */
-    showCardDetails(event) {
+    showModalDetails(event) {
         const card = event.currentTarget
         const cardId = parseInt(card.dataset.cardId, 10)
 
@@ -62,12 +73,12 @@ export default class extends Controller {
         this.modalPicture.setAttribute('src', '/images/gamesPictures/' + cardData.picture)
 
         this.modalDifficulty.innerHTML = ""
-        this.gameDifficultyShow(cardData.difficulty).forEach(element => {
+        gameDifficultyShow(cardData.difficulty).forEach(element => {
             this.modalDifficulty.appendChild(element)
         })
 
         this.modalTime.textContent = `${cardData.time} min`
-        this.startButton.setAttribute('href', '../game/' + cardData.id);
+        this.startButton.setAttribute('href', '../game/' + cardData.id)
         this.modal.style.display = 'flex'
     }
     
@@ -81,21 +92,21 @@ export default class extends Controller {
         event.stopPropagation()
     }
 
-    /**
-     * Generates and returns an array of star elements representing the game difficulty.
-     * 
-     * @param {number} difficulty The difficulty level of the game (1-5).
-     * @returns {HTMLElement[]} An array of star elements.
-     */
-    gameDifficultyShow(difficulty) {
-        return [...Array(5)].map((star, index) => {
-            const starElement = document.createElement('span');
-            starElement.classList.add('star')
+    // /**
+    //  * Generates and returns an array of star elements representing the game difficulty.
+    //  * 
+    //  * @param {number} difficulty The difficulty level of the game (1-5).
+    //  * @returns {HTMLElement[]} An array of star elements.
+    //  */
+    // gameDifficultyShow(difficulty) {
+    //     return [...Array(5)].map((star, index) => {
+    //         const starElement = document.createElement('span')
+    //         starElement.classList.add('star')
             
-            // Filled or empty star based on difficulty
-            starElement.innerHTML = index < difficulty ? '&#9733;' : '&#9734;' 
+    //         // Filled or empty star based on difficulty
+    //         starElement.innerHTML = index < difficulty ? '&#9733;' : '&#9734;' 
 
-            return starElement
-        })
-    }
+    //         return starElement
+    //     })
+    // }
 }

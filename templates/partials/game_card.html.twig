@@ -1,25 +1,24 @@
 {% block card %}
-    <article class="game_card" data-target="#modal" data-action="show" data-card-id="{{ game.id }}">
-        <div class="game_picture_container">
-            <img src="{{ vich_uploader_asset(game, 'pictureFile') }}" alt="{{ game.title }}" class="game_picture">
-        </div>
-        
-        <div>
-            <div class="top_section">
-                <div class="title_rating">
-                    <h3>{{ game.title }}</h3>
-                    <div>
-                        {{ game.difficulty }}
-                    </div>
-                </div>
-                <div class="max_time">
-                    <img src="{{ asset('images/clock_icon.svg') }}" alt="Icône de montre">
-                    <p>{{ game.time }} min</p>
-                </div>
-            </div>
-            <div class="game_description">
-                {{ game.description }}
-            </div>
-        </div>
-    </article>
+	<article class="game_card" data-target="#modal" data-action="show" data-card-id="{{ game.id }}">
+		<div class="game_picture_container">
+			<img src="{{ vich_uploader_asset(game, 'pictureFile') }}" alt="{{ game.title }}" class="game_picture">
+		</div>
+
+		<div>
+			<div class="top_section">
+				<div class="title_rating">
+					<h3>{{ game.title }}</h3>
+					<div class="game_difficulty" data-difficulty="{{ game.difficulty }}"></div>
+				</div>
+				<div class="max_time">
+					<img src="{{ asset('images/clock_icon.svg') }}" alt="Icône de montre">
+					<p>{{ game.time }}
+						min</p>
+				</div>
+			</div>
+			<div class="game_description">
+				{{ game.description }}
+			</div>
+		</div>
+	</article>
 {% endblock %}
