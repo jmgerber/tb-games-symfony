@@ -5,19 +5,19 @@
 {% endblock %}
 
 {% block body %}
-	<div class="container dashboard_container" data-controller="dashboard">
-		<h1 class="dashboard_title">Mon tableau de bord</h1>
-		<section class="dashboard_section">
-			<aside>
-				<div class="user_card">
-					<div class="user_infos">
+	<div class="container dashboard-container" data-controller="dashboard">
+		<h1 class="dashboard-title">Mon tableau de bord</h1>
+		<section class="dashboard-section">
+			<aside class="aside-user-infos">
+				<div class="user-card">
+					<div class="user-infos">
 						<img src="{{ asset('images/user_icon.svg') }}" alt="Icône de l'utilisateur">
 						<p>{{ app.user.username }}</p>
 					</div>
-					<p class="user_stats">Parties jouées : 2</p>
+					<p class="user-stats">Parties jouées : 2</p>
 				</div>
-				<div class="friend_list">
-					<h2 class="friend_list_title">Liste d'amis</h2>
+				<div class="friend-list">
+					<h2 class="friend-list-title">Liste d'amis</h2>
 					<ul>
 						<li>Ami1</li>
 						<li>Ami2</li>
@@ -28,7 +28,7 @@
 				</div>
 			</aside>
 
-			<div class="game_card_container">
+			<div class="game-card-container">
 				{% for game in games %}
 					{{ include('partials/game_card.html.twig') }}
 				{% endfor %}

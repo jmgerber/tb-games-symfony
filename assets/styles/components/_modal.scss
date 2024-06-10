@@ -1,0 +1,109 @@
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal-content {
+    @extend .flex-column;
+    width: clamp(324px, 70%, 852px);
+    z-index: 2;
+    padding: 1.25rem;
+    background-color: $primary-color;
+    border-radius: 12px;
+  }
+
+  .modal-content * {
+    color: $black-blue;
+  }
+
+  .modal-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+
+    .close-modal-btn {
+      border: none;
+      width: clamp(24px, 2vw + 10px, 40px);
+      height: clamp(24px, 2vw + 10px, 40px);
+      background-color: $error-color;
+      border-radius: 4px;
+      cursor: pointer;
+
+      span {
+        position: relative;
+        top: -1px;
+        color: $white-ivory;
+        line-height: clamp(24px, 2vw + 10px, 40px);
+        font-size: clamp(24px, 2vw + 10px, 40px);
+      }
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  .modal-body {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .modal-picture {
+    width: min(24vw, 360px);
+    height: min(24vw, 360px);
+    object-fit: cover;
+    border: 2px solid $white-ivory;
+  }
+
+  .modal-content-text {
+    @extend .flex-column;
+    width: 100%;
+    gap: 1rem;
+
+    .modal-title {
+      font-size: $text-clamp-l;
+    }
+
+    .modal-description {
+      font-size: $text-clamp-s;
+      text-align: justify;
+    }
+
+    .modal-difficulty {
+      display: flex;
+      gap: 0.25rem;
+    
+      .star {
+        color: $white-ivory;
+        font-size: clamp(1.2rem, 1vw + 0.8rem, 1.6rem);
+      }
+    }
+
+    .modal-time {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      .time-text {
+        font-size: $text-clamp-l;
+        font-weight: 600;
+      }
+
+      .time-clock {
+        height: clamp(24px, 2vw, 32px);
+        width: clamp(24px, 2vw, 32px);
+        filter: brightness(2);
+      }
+    }
+
+    .start-button {
+      align-self: flex-end;
+    }
+  }

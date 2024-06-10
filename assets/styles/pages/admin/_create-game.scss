@@ -1,0 +1,65 @@
+#game-form {
+    margin-top: 52px;
+}
+
+#game-form-container {
+    @extend .flex-column;
+    align-items: center;
+}
+
+#games_riddle {
+    @extend .flex-column;
+}
+
+.riddles-container {
+    @extend .flex-column;
+    align-items: center;
+}
+
+.riddles-list-label {
+    font-size: $text-clamp-l;
+    color: $primary-color;
+    margin-block: 1rem;
+}
+
+.riddle-label {
+    font-size: $text-clamp-s;
+    margin-bottom: 0.75rem;
+}
+
+.btn-riddle {
+    padding: 0.5rem;
+    font-size: $text-clamp-s;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+
+    &.btn-delete {
+        background-color: $error-color;
+        color: $white-ivory;
+        width: 32px;
+        height: 32px;
+        order: -1;
+        padding: 0;
+        align-self: flex-end;
+        border-radius: 4px;
+    }
+
+    &.btn-add {
+        align-self: center;
+        background-color: $primary-color;
+        color: $black-blue;
+        margin-block: 2rem;
+        padding-inline: 2rem;
+        border-radius: 2px;
+    }
+}
+
+.riddle-form {
+    @extend .flex-column;
+    border: 2px solid $primary-color;
+    padding: 0.5rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+}

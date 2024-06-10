@@ -1,15 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}TB Games - Réinitialiser votre mot de passe{% endblock %}
+{% block title %}
+	TB Games - Réinitialiser votre mot de passe
+{% endblock %}
 
 {% block body %}
-
-    <div class="reset_message_container">
-        <p class="reset_message">
-            Si un compte correspondant à cette adresse email existe, un email contenant un lien vous permettant de réinitialiser votre mot de passe vous a été envoyé.
-            Ce lien expire dans {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
-        </p>
-        <p class="reset_message">Si vous n'avez pas reçu d'email, vérifier votre boîte de spam ou <a href="{{ path('app_forgot_password_request') }}" class="reset_try_again_link">réessayer à nouveau</a>.</p>
-    </div>
-
+	<div class="container center">
+		<div class="reset-message-container">
+			<p class="reset-message">
+				Si un compte correspondant à cette adresse email existe, un email contenant un lien vous permettant de réinitialiser votre mot de passe vous a été envoyé. Ce lien expire dans
+				{{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+			</p>
+			<p class="reset-message">Si vous n'avez pas reçu d'email, vérifier votre boîte de spam ou
+				<a href="{{ path('app_forgot_password_request') }}" class="reset-try-again-link">réessayer à nouveau</a>.</p>
+		</div>
+	</div>
 {% endblock %}

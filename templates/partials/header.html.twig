@@ -1,42 +1,55 @@
-<header>
-    <a href="{{ path('home.index') }}">
-        <img src="{{ asset('images/TB_Games_logo.svg')}}" alt="Logo TB Games">
-    </a>
-    <nav>
-        <ul class="nav_pages_links">
-            <li><a href="#">Demo</a></li>
-            <li><a href="#">Nos services</a></li>
-            <li><a href="#">Contact</a></li>
-        {% if app.user %}
-            <li><a href="{{ path('app.dashboard') }}">Tableau de bord</a></li>
-        {% endif %}
-        {% if is_granted('ROLE_ADMIN') %}
-            <li><a href="{{ path('admin.games.index') }}">Panel d'administration</a></li>
-        {% endif %}
-            
-        </ul>
-        {% if app.user %}
-            <div class="logged_user">
-                <div class="user_container">
-                    <object type="image/svg+xml" data="{{ asset('images/user_icon.svg') }}" class="user_icon">
-                        Icone d'utilisateur
-                    </object>
-                    <p class="username">{{ app.user.username }}</p>
-                </div>
-                <a href="{{ path('app.logout') }}" class="logout_button">Se déconnecter</a>
-            </div>
-        {% else %}
-            <ul class="nav_connection_links {{app.current_route == 'app.register' ? 'register' : '' }}">
-                {% if app.current_route == 'app.register' %}
-                    <p class="have_account">Vous avez un compte ?</p>
-                    <li class="highlighted-button small-btn"><a href="{{ path('app.login') }}">Se connecter</a></li>
-                {% elseif app.current_route == 'app.login' %}
-                    
-                {% else %}
-                    <li><a href="{{ path('app.login') }}">Se connecter</a></li>
-                    <li class="highlighted-button small-btn"><a href="{{ path('app.register') }}">S'inscrire</a></li>
-                {% endif %}
-            </ul>
-        {% endif %}
-    </nav>
+<header class="header">
+	<a href="{{ path('home.index') }}">
+		<img src="{{ asset('images/TB_Games_logo.svg')}}" alt="Logo TB Games" class="header-logo">
+	</a>
+	<nav class="header-nav">
+		<ul class="header-nav--pages-links">
+			<li>
+				<a href="#">Nos services</a>
+			</li>
+			<li>
+				<a href="#">Contact</a>
+			</li>
+			{% if app.user %}
+				<li>
+					<a href="{{ path('app.dashboard') }}">Tableau de bord</a>
+				</li>
+			{% endif %}
+			{% if is_granted('ROLE_ADMIN') %}
+				<li>
+					<a href="{{ path('admin.games.index') }}">Panel d'administration</a>
+				</li>
+			{% endif %}
+
+		</ul>
+		{% if app.user %}
+			<div class="logged_user">
+				<div class="user_container">
+					<object type="image/svg+xml" data="{{ asset('images/user_icon.svg') }}" class="user_icon">
+						Icone d'utilisateur
+					</object>
+					<p class="username">{{ app.user.username }}</p>
+				</div>
+				<a href="{{ path('app.logout') }}" class="logout_button">Se déconnecter</a>
+			</div>
+		{% else %}
+			<ul class="header-nav--connection-links {{app.current_route == 'app.register' ? 'register-page' : '' }}">
+				{% if app.current_route == 'app.register' %}
+					<p class="have-account-text">Vous avez un compte ?</p>
+					<li class="button button--highlighted button--small login-button">
+						<a href="{{ path('app.login') }}">Se connecter</a>
+					</li>
+				{% elseif app.current_route == 'app.login' %}
+
+				{% else %}
+					<li class="login-link">
+						<a href="{{ path('app.login') }}">Se connecter</a>
+					</li>
+					<li class="button button--highlighted button--small">
+						<a href="{{ path('app.register') }}">S'inscrire</a>
+					</li>
+				{% endif %}
+			</ul>
+		{% endif %}
+	</nav>
 </header>

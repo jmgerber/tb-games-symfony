@@ -6,20 +6,22 @@
 
 {% block body %}
 
-	<div id="riddle_container" data-controller="active-game" data-game-id="{{ game.id }}">
-		<h2 class="riddle_title">{{ game.title }}</h2>
+	<div id="riddle-container" data-controller="active-game" data-game-id="{{ game.id }}">
+		<h2 class="riddle-title">{{ game.title }}</h2>
 		<div class="riddle" data-riddle-id="{{ firstRiddle.id }}">
-			<div class="riddle_timer"></div>
-			<p class="riddle_question"></p>
+			<div class="riddle-timer"></div>
+			<p class="riddle-question"></p>
 
-			<form id="riddle_answer_form">
-				<input type="text" name="answer" id="riddle_answer_input">
-				<button type="submit" class="highlighted-button small-btn" id="riddle_submit_button">Valider</button>
+			<form id="riddle-answer-form">
+				<div class="form-group">
+					<input type="text" name="answer" id="riddle-answer-input">
+				</div>
+				<button type="submit" class="button--highlighted button--small" id="riddle-submit-button">Valider</button>
 			</form>
 
-			<p class="riddle_message"></p>
-			<button id="next_riddle_button">Prochaine énigme
-				<img src="{{ asset('images/arrow_right.svg') }}" alt="Flèche vers la droite" class="arrow_right"></button>
+			<p class="riddle-message"></p>
+			<button id="next-riddle-button">Prochaine énigme
+				<img src="{{ asset('images/arrow_right.svg') }}" alt="Flèche vers la droite" class="arrow-right"></button>
 		</div>
 	</div>
 

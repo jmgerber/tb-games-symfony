@@ -18,7 +18,7 @@ class ResetPasswordRequestFormType extends AbstractType
                 'attr' => ['autocomplete' => 'email'],
                 'row_attr' => ['class' => 'form-group'],
                 'help' => 'Entrez votre addresse email, un lien de réinitialisation du mot de passe vous sera envoyé.',
-                'help_attr' => ['class' => 'reset_help'],
+                'help_attr' => ['class' => 'reset-help'],
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Veuillez entrer votre adresse email.',
@@ -27,7 +27,7 @@ class ResetPasswordRequestFormType extends AbstractType
             ])
             ->add('send', SubmitType::class, [
                 'label' => 'Envoyer',
-                'attr' => ['class' => 'highlighted-button small-btn'],
+                'attr' => ['class' => 'button--highlighted button--small'],
             ]);
     }
 

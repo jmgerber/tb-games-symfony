@@ -23,10 +23,10 @@ export default class extends Controller {
         this.initializeModalElements()
 
         
-        const cards = document.querySelectorAll('.game_card')
+        const cards = document.querySelectorAll('.game-card')
         cards.forEach(card => {
             // Diplays the difficulty of each game with stars
-            const difficultyDisplay = card.querySelector('.game_difficulty')
+            const difficultyDisplay = card.querySelector('.game-difficulty')
             const difficultyLevel = difficultyDisplay.dataset['difficulty']
             gameDifficultyShow(difficultyLevel).forEach(element => {
                 difficultyDisplay.appendChild(element)
@@ -43,13 +43,13 @@ export default class extends Controller {
      * Initializes references to modal elements within the DOM.
      */
     initializeModalElements() {
-        this.modalTitle = this.modal.querySelector('.modal_title')
-        this.modalPicture = this.modal.querySelector('.modal_picture')
-        this.modalDescription = this.modal.querySelector('.modal_description')
-        this.modalDifficulty = this.modal.querySelector('.modal_difficulty')
-        this.modalTime = this.modal.querySelector('.time_text')
-        this.closeButton = this.modal.querySelector('.close_modal_btn')
-        this.startButton = this.modal.querySelector('.start_button')
+        this.modalTitle = this.modal.querySelector('.modal-title')
+        this.modalPicture = this.modal.querySelector('.modal-picture')
+        this.modalDescription = this.modal.querySelector('.modal-description')
+        this.modalDifficulty = this.modal.querySelector('.modal-difficulty')
+        this.modalTime = this.modal.querySelector('.time-text')
+        this.closeButton = this.modal.querySelector('.close-modal-btn')
+        this.startButton = this.modal.querySelector('.start-button')
     }
 
     /**
@@ -91,22 +91,4 @@ export default class extends Controller {
         this.modal.style.display = 'none'
         event.stopPropagation()
     }
-
-    // /**
-    //  * Generates and returns an array of star elements representing the game difficulty.
-    //  * 
-    //  * @param {number} difficulty The difficulty level of the game (1-5).
-    //  * @returns {HTMLElement[]} An array of star elements.
-    //  */
-    // gameDifficultyShow(difficulty) {
-    //     return [...Array(5)].map((star, index) => {
-    //         const starElement = document.createElement('span')
-    //         starElement.classList.add('star')
-            
-    //         // Filled or empty star based on difficulty
-    //         starElement.innerHTML = index < difficulty ? '&#9733;' : '&#9734;' 
-
-    //         return starElement
-    //     })
-    // }
 }

@@ -1,0 +1,36 @@
+.form-login {
+    margin-top: 24px;
+    margin-bottom: clamp(52px, 12vw, 112px);
+    width: clamp(252px, 30%, 400px);
+
+    .login-error {
+        color: $error-color;
+        font-size: $text-clamp-s;
+        font-weight: 500;
+        height: 18px;
+        margin-bottom: 0.6rem;
+    }
+
+    .password-input {
+        margin-bottom: 0.5rem;
+    }
+
+    .forgot-password {
+        align-self: baseline;
+        font-size: $text-clamp-xs;
+        font-weight: 300;
+        padding: 4px 4px 4px 0;
+        margin-bottom: 1rem;
+    }
+
+    .section-separator-small {
+        margin-block: 1.5rem;
+        width: clamp(124px, 16vw, 192px);
+    }
+
+    .no-account {
+        font-size: $text-clamp-s;
+        color: $primary-color;
+        margin-bottom: 0.75rem;
+    }
+}

@@ -1,48 +1,54 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Panel d'administration{% endblock %}
+{% block title %}
+	Panel d'administration
+{% endblock %}
 
 {% block body %}
-    <div class="games_container">
-        <div class="title-container">
-            <img src="{{ asset('images/title_decorator_left.svg') }}" alt="title decorator">
-            <h1>Liste des escape games</h1>
-            <img src="{{ asset('images/title_decorator_right.svg') }}" alt="title decorator">
-        </div>
-        <a href="{{ path('admin.games.create') }}" class="create_button">Créer un escape game <img src="{{ asset('images/plus-square.svg') }}" alt="Icône plus"></a>
-        <section class="games_list_container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Titre</th>
-                        <th>Temps max</th>
-                        <th>Difficulté</th>
-                        <th>Illustration</th>
-                        <th>Description</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for game in games %}
-                        <tr>
-                            <td>{{ game.title }}</td>
-                            <td>{{ game.time }}</td>
-                            <td>{{ game.difficulty }}</td>
-                            <td>
-                                <img src="{{ vich_uploader_asset(game, 'pictureFile') }}" alt="{{ game.title }}">
-                            </td>
-                            <td>{{ game.description }}</td>
-                            <td class="actions_cell">
-                                <a class="action_button edit" href="{{ path('admin.games.edit', {id: game.id}) }}">Editer</a>
-                                <form action="{{ path('admin.games.delete', {id: game.id}) }}" method="POST">
-                                    <input type="hidden" name="_method" value="DELETE">
-                                    <button type="submit" class="action_button delete">Supprimer</button>
-                                </form>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </section>
-    </div>
-{% endblock %}
+	<div class="games-container">
+		<div class="title-container">
+			<img src="{{ asset('images/title_decorator_left.svg') }}" alt="title decorator">
+			<h1>Liste des games</h1>
+			<img src="{{ asset('images/title_decorator_right.svg') }}" alt="title decorator">
+		</div>
+		<a href="{{ path('admin.games.create') }}" class="create-button">
+			Créer un escape game
+			<img src="{{ asset('images/plus-square.svg') }}" alt="Icône plus">
+		</a>
+
+		<section class="games-list-container">
+			<table>
+				<thead id="table-header">
+					<tr>
+						<th class="th-title col-1">Titre</th>
+						<th class="th-timer col-2"><img src="{{ asset('images/clock_icon.svg') }}" alt="Icône de montre"></th>
+						<th class="th-difficulty col-3"><img src="{{ asset('images/difficulty_icon.svg') }}" alt="Icône d'étoile à moitié remplie"></th>
+						<th class="th-picture col-4">Illustration</th>
+						<th class="th-description col-5">Description</th>
+						<th class="th-actions col-6"><img src="{{ asset('images/wrench_icon.svg') }}" alt="Icône de clé à molette"></th>
+					</tr>
+				</thead>
+				<tbody id="table-body">
+					{% for game in games %}
+						<tr class="table-line">
+							<td class="col-1">{{ game.title }}</td>
+							<td class="col-2">{{ game.time }}</td>
+							<td class="col-3">{{ game.difficulty }}</td>
+							<td class="col-4"><img class="table-line--picture" src="{{ vich_uploader_asset(game, 'pictureFile') }}" alt="{{ game.title }}"></td>
+							<td class="td-description col-5">
+								<div class="description-container">{{ game.description }}</div>
+							</td>
+							<td class="td-actions col-6">
+								<a class="button--highlighted button--small" href="{{ path('admin.games.edit', {id: game.id}) }}">Editer</a>
+								<form action="{{ path('admin.games.delete', {id: game.id}) }}" method="POST">
+									<input type="hidden" name="_method" value="DELETE">
+									<button type="submit" class="button--red button--small">Supprimer</button>
+								</form>
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</section>
+	</section>
+</div>{% endblock %}

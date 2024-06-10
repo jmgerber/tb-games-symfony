@@ -1,0 +1,21 @@
+@import 'utils/variables';
+
+@import 'base/base';
+@import 'base/typography';
+
+@import 'components/game-card';
+@import 'components/modal';
+@import 'components/riddles';
+@import 'components/buttons';
+
+@import 'layouts/header';
+@import 'layouts/footer';
+@import 'layouts/forms';
+
+@import 'pages/index';
+@import 'pages/login';
+@import 'pages/register';
+@import 'pages/reset-password';
+@import 'pages/dashboard';
+@import 'pages/admin/games-list';
+@import 'pages/admin/create-game';

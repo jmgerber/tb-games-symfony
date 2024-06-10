@@ -1,21 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}TB Games - Réinitialiser votre mot de passe{% endblock %}
+{% block title %}
+	TB Games - Réinitialiser votre mot de passe
+{% endblock %}
 
 {% block body %}
-    
-    <div class="title-container reset_password">
-        <img src="{{ asset('images/title_decorator_left.svg') }}" alt="Décorateur pour le titre">
-        <h1>Réinitialiser votre mot de passe</h1>
-        <img src="{{ asset('images/title_decorator_right.svg') }}" alt="Décorateur pour le titre">
-    </div>
+	<div class="container center">
+		<div class="title-container reset-password">
+			<img src="{{ asset('images/title_decorator_left.svg') }}" alt="Décorateur pour le titre">
+			<h1>Réinitialiser votre mot de passe</h1>
+			<img src="{{ asset('images/title_decorator_right.svg') }}" alt="Décorateur pour le titre">
+		</div>
 
-    {% for flash_error in app.flashes('reset_password_error') %}
-        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
-    {% endfor %}
+		{% for flash_error in app.flashes('reset_password_error') %}
+			<div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+		{% endfor %}
 
-    {{ form_start(requestForm) }}
-        {{ form_row(requestForm.email) }}
-    {{ form_end(requestForm) }}
-    
+		{{ form_start(requestForm) }}
+		{{ form_row(requestForm.email) }}
+		{{ form_end(requestForm) }}
+	</div>
 {% endblock %}

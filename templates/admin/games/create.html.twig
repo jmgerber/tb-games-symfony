@@ -1,14 +1,28 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Créer un nouveau jeu{% endblock %}
+{% block title %}
+	Créer un escape game
+{% endblock %}
 
 {% block body %}
-    <div class="title-container">
-        <img src="{{ asset('images/title_decorator_left.svg') }}" alt="title decorator">
-        <h1>Créer un escape game</h1>
-        <img src="{{ asset('images/title_decorator_right.svg') }}" alt="title decorator">
-    </div>
-    
-    {{ form(form) }}
+	<div class="title-container">
+		<img src="{{ asset('images/title_decorator_left.svg') }}" alt="title decorator">
+		<h1>Créer un escape game</h1>
+		<img src="{{ asset('images/title_decorator_right.svg') }}" alt="title decorator">
+	</div>
+	{{ form_start(form) }}
+	<div id="game-form-container">
+		{{ form_row(form.title) }}
+		{{ form_row(form.time) }}
+		<div class="form-group">
+			{{ form_label(form.difficulty) }}
+			<div class="input-range-container">
+				{{ form_widget(form.difficulty) }}
+				<div class="range-value">3</div>
+			</div>
+		</div>
+		{{ form_rest(form) }}
+	</div>
+	{{ form_end(form) }}
 
 {% endblock %}

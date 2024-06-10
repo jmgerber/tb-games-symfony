@@ -12,14 +12,14 @@ export default class extends Controller {
      */
     async connect() {
         this.riddleContainer = document.querySelector('.riddle')
-        this.riddleAnswerForms = document.querySelectorAll('#riddle_answer_form')
-        this.riddleQuestion = document.querySelector('.riddle_question')
-        this.riddleMessage = document.querySelector('.riddle_message')
-        this.nextRiddleButton = document.getElementById('next_riddle_button')
-        this.submitRiddleButton = document.getElementById('riddle_submit_button')
-        this.riddleTimer = document.querySelector('.riddle_timer')
+        this.riddleAnswerForms = document.querySelectorAll('#riddle-answer-form')
+        this.riddleQuestion = document.querySelector('.riddle-question')
+        this.riddleMessage = document.querySelector('.riddle-message')
+        this.nextRiddleButton = document.getElementById('next-riddle-button')
+        this.submitRiddleButton = document.getElementById('riddle-submit-button')
+        this.riddleTimer = document.querySelector('.riddle-timer')
         
-        const gameID = document.getElementById('riddle_container').dataset.gameId
+        const gameID = document.getElementById('riddle-container').dataset.gameId
         const gameData = await this.getGameData(gameID)
         this.countdownTime = (gameData.time * 60)
         this.startTimer()
@@ -30,7 +30,7 @@ export default class extends Controller {
 
             form.addEventListener('submit', async (event) => {
                 event.preventDefault()
-                const playerAnswer = document.getElementById('riddle_answer_input').value
+                const playerAnswer = document.getElementById('riddle-answer-input').value
                 const response = await this.riddleResponseVerify(riddleId, playerAnswer)
                 
                 if (response.success) {
@@ -126,7 +126,7 @@ export default class extends Controller {
             return
         }
 
-        const existingPicture = document.querySelector('.riddle_picture')
+        const existingPicture = document.querySelector('.riddle-picture')
         if (existingPicture) {
             this.riddleContainer.removeChild(existingPicture)
         }
@@ -134,12 +134,12 @@ export default class extends Controller {
         if (riddleData.picture) {
             const pictureDOM = document.createElement('img')
             pictureDOM.src = `/images/riddlesPictures/${riddleData.picture}`
-            pictureDOM.classList.add('riddle_picture')
+            pictureDOM.classList.add('riddle-picture')
             this.riddleContainer.insertBefore(pictureDOM, this.riddleQuestion)
         }
 
         this.submitRiddleButton.disabled = false
-        document.getElementById('riddle_answer_input').value = ''
+        document.getElementById('riddle-answer-input').value = ''
         this.riddleMessage.textContent = ''
         this.nextRiddleButton.style.display = 'none'
     }

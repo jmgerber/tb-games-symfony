@@ -1,0 +1,86 @@
+form {
+    @extend .flex-column;
+    align-items: center;
+
+    .form-group {
+        @extend .flex-column;
+        width: 100%;
+        min-width: 242px;
+        margin-bottom: 1rem;
+
+        label {
+            font-size: $text-clamp-m;
+            color: $primary-color;
+            margin-bottom: 0.25rem;
+        }
+
+        input {
+            font-size: $text-clamp-s;
+            font-weight: 500;
+            padding-left: 0.5rem;
+            color: $black-blue;
+            background-color: $white-ivory;
+            height: clamp(42px, 4vw, 54px);
+            border-radius: 4px;
+            border: none;
+        }
+
+        .input-range-container {
+            display: flex;
+            align-items: center;
+
+            .input-range {
+                -webkit-appearance: none;
+                appearance: none; 
+                padding: 0;
+                flex: 1;
+                cursor: pointer;
+                height: 0.375rem;
+                outline: none;
+                background: $white-ivory;
+
+                &::-webkit-slider-thumb {
+                    -webkit-appearance: none;
+                    appearance: none; 
+                    height: 16px;
+                    width: 16px;
+                    background-color: $primary-color;
+                    border-radius: 50%;
+                    border: none;
+                    transition: .2s ease-in-out;
+                }
+            }
+
+            .range-value {
+                font-size: 1.5rem;
+                margin-left: 1.5rem;
+            }
+        }
+
+        input[type="file"] {
+            background-color: $primary-color;
+            height: auto;
+            padding-block: 0.25rem;
+        }
+
+        textarea {
+            resize: none;
+            height: 180px;
+            color: $black-blue;
+            background-color: $white-ivory;
+            font-size: $text-clamp-xs;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            padding: 0.5rem;
+            border-radius: 6px;
+        }
+        
+        li {
+            /* color error messages */
+            color: $error-color;
+            font-size: $text-clamp-xs;
+            padding-bottom: 0.375rem;
+        }
+    }
+}
+

@@ -8,7 +8,7 @@ export default class extends Controller {
         this.index = this.element.childElementCount
 
         const addButton = document.createElement('button')
-        addButton.classList.add('btn_riddle', 'btn_add')
+        addButton.classList.add('btn-riddle', 'btn-add')
         addButton.textContent = 'Ajouter une énigme'
         addButton.type = 'button'
         addButton.addEventListener('click', this.addElement)
@@ -18,7 +18,7 @@ export default class extends Controller {
 
         this.element.childNodes.forEach((child, index) => {
             if (child.nodeName === 'DIV') {
-                child.classList.add('riddle_single_form')
+                child.classList.add('riddle-form')
                 child.firstChild.textContent = `Enigme ${index + 1}`
             }
         })        
@@ -40,7 +40,7 @@ export default class extends Controller {
                 .replaceAll('__name__', this.index)
         ).firstElementChild
 
-        newElement.classList.add('riddle_single_form')
+        newElement.classList.add('riddle-form')
         this.addDeleteButton(newElement)
         this.index++
 
@@ -54,7 +54,7 @@ export default class extends Controller {
      */
     addDeleteButton = (item) => {
         const deleteButton = document.createElement('button')
-        deleteButton.classList.add('btn_riddle', 'btn_delete')
+        deleteButton.classList.add('btn-riddle', 'btn-delete')
         deleteButton.textContent = '✖'
         deleteButton.type = 'button'
 

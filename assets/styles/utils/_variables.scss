@@ -1,0 +1,14 @@
+/* colors variables */
+$primary-color: #BF9A7C;
+$secondary-color: #FF8906;
+$error-color: #e53f65;
+$white-ivory: #FFFFF0;
+$black-blue: #080810;
+
+/* font-size variables */
+$text-clamp-xxl: clamp(1.6rem, calc(2vw + 1rem), 3rem);
+$text-clamp-xl: clamp(1.6rem, calc(2vw + 0.6rem), 2.2rem);
+$text-clamp-l: clamp(1rem, calc(1vw + 0.5rem), 1.5rem);
+$text-clamp-m: clamp(0.8rem, calc(1vw + 0.4rem), 1.3rem);
+$text-clamp-s: clamp(0.8rem, calc(1vw + 0.3rem), 1.1rem);
+$text-clamp-xs: clamp(0.7rem, calc(1vw + 0.2rem), 1rem);

@@ -1,0 +1,75 @@
+#riddle-container {
+    @extend .flex-column;
+    align-items: center;
+    padding: 3rem;
+
+    .riddle-title {
+        font-family: 'Mate SC', sans-serif;
+        font-size: $text-clamp-xl;
+        font-weight: 500;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .riddle-timer {
+        font-size: $text-clamp-m;
+        color: $black-blue;
+        font-weight: 600;
+        background-color: $primary-color;
+        padding: 0.5rem 0.75rem;
+        margin-bottom: 1rem;
+        border-radius: 4px;
+    }
+
+    .riddle {
+        @extend .flex-column;
+        align-items: center;
+    }
+
+    .riddle-picture {
+        max-height: 320px;
+    }
+
+    .riddle-question {
+        font-size: $text-clamp-s;
+        margin-block: 1rem;
+    }
+
+    .riddle-message {
+        font-size: $text-clamp-s;
+        text-align: center;
+        color: $primary-color;
+        margin-block: 1rem;
+    }
+
+    #riddle-submit-button:disabled {
+        display: none;
+    }
+    
+    #next-riddle-button {
+        display: none;
+        align-items: center;
+        color: $white-ivory;
+        background-color: $secondary-color;
+        font-size: $text-clamp-s;
+        font-weight: 400;
+        padding: 0.5rem 0.75rem;
+        border: none;
+        border-radius: 4px;
+        gap: 0.2rem;
+        cursor: pointer;
+
+        .arrow-right {
+            filter: brightness(100);
+            width: clamp(20px, 2.5vw, 32px);
+            height: clamp(20px, 2.5vw, 32px);
+        }
+    }
+}
+
+
+
+
+
+
+

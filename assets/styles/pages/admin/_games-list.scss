@@ -1,0 +1,117 @@
+.games-container {
+    margin-inline: 64px;
+}
+
+.create-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: fit-content;
+    background-color: $primary-color;
+    height: clamp(38px, 4vw, 48px);
+    border-radius: 6px;
+    padding: 0.5rem;
+    font-size: $text-clamp-m;
+    font-weight: 600;
+    margin-top: 2rem;
+
+    img {
+        margin-left: 0.75rem;
+        width: clamp(24px, 3vw, 32px);
+        height: clamp(24px, 3vw, 32px);
+    }
+}
+
+.games-list-container {
+    margin-top: 1rem;
+
+    table {
+        border-collapse: collapse;
+    }
+
+    #table-header {
+        text-align: center;
+        background-color: transparentize($primary-color, 0.9);
+
+        img {
+            width: clamp(20px, 3vw, 28px);
+            height: clamp(20px, 3vw, 28px);
+        }
+
+        th {
+            padding-block: 0.5rem;
+        }
+    }
+
+    .table-line {
+        border-bottom: 2px solid $primary-color;
+
+        &:last-child {
+            border: none;
+        }
+
+        td {
+            height: 200px;
+            text-align: center;
+            font-size: $text-clamp-s;
+            padding: 0.5rem;
+        }
+
+        .col-1 {
+            width: 10%;
+        }
+        .col-2 {
+            width: 5%;
+        }
+        .col-3 {
+            width: 5%;
+        }
+        .col-4 {
+            width: 20%;
+        }
+        .col-4 {
+            width: 40%;
+        }
+        .col-4 {
+            width: 20%;
+        }
+
+        &--picture {
+            width: clamp(92px, 12vw, 192px);
+            height: clamp(92px, 12vw, 192px);
+            object-fit: cover;
+        }
+
+        .td-description {
+            font-size: $text-clamp-xs;
+            text-align: justify;
+
+            .description-container {
+                height: 200px;
+                overflow-y: scroll;
+                padding-right: 0.375rem;
+
+                &::-webkit-scrollbar {
+                    width: 6px;
+                }
+                  
+                &::-webkit-scrollbar-track {
+                    background: transparent;
+                }
+                  
+                &::-webkit-scrollbar-thumb {
+                    background-color: $secondary-color;
+                    border-radius: 24px;
+                }
+            }
+        }
+    }
+
+    .td-actions {
+        @extend .flex-column;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        gap: 0.5vw;
+    }
+}

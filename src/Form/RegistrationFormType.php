@@ -59,7 +59,7 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('save', SubmitType::class, [
                 'label' => 'S\'inscrire',
-                'attr' => ['class' => 'highlighted-button'],
+                'attr' => ['class' => 'button--highlighted'],
             ]);
     }
 

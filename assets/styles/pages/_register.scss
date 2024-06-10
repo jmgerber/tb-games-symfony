@@ -1,0 +1,48 @@
+.form_register {
+    margin-top: 52px;
+    margin-bottom: clamp(52px, 12vw, 112px);
+    width: clamp(252px, 30%, 420px);
+
+    .form-group.checkbox {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-block: 1.75rem;
+
+        label {
+            margin: 0;
+            flex: 1;
+            font-size: $text-clamp-s;
+        }
+
+        input[type="checkbox"] {
+            display: grid;
+            place-content: center;
+            appearance: none;
+            width: clamp(1.5rem, 3vw, 2rem);
+            height: clamp(1.5rem, 3vw, 2rem);
+            border-radius: 0;
+            margin-left: 12px;
+            padding: initial;
+            cursor: pointer;
+        }
+
+        input[type="checkbox"]::before {
+            content: "";
+            width: clamp(1.1rem, calc(3vw - 0.4rem), 1.6rem);
+            height: clamp(1.1rem, calc(3vw - 0.4rem), 1.6rem);
+            transform: scale(0);
+            transition: 120ms transform ease-in-out;
+            box-shadow: inset 2rem 2rem $primary-color;
+            border-radius: 2px;
+        }
+
+        input[type="checkbox"]:checked {
+            border-radius: 4px;
+        }
+        
+        input[type="checkbox"]:checked::before {
+            transform: scale(1);
+        }
+    }
+}

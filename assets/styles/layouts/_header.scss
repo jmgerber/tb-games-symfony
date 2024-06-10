@@ -1,0 +1,99 @@
+.header {
+    height: 148px;
+    display: flex;
+    padding: 2vw;
+    background-color: rgba(0, 0, 0, 0.15);
+    align-items: center;
+    font-weight: 600;
+}
+
+.header-logo {
+    width: 112px;
+    height: 112px;
+}
+
+.header-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    font-size: $text-clamp-l;
+
+    &--pages-links {
+        display: flex;
+        margin-left: 3vw;
+        gap: 1vw;
+
+        li {
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        a {
+            padding: 0.8rem;
+        }
+    }
+
+    &--connection-links {
+        display: flex;
+        gap: 2vw;
+        margin-left: 2rem;
+
+        .login-link {
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+    
+        &.register-page {
+            flex-direction: column;
+            align-items: center;
+            gap: 1.125rem;
+    
+            .have-account-text {
+                font-weight: 500;
+                font-size: $text-clamp-xs;
+                color: $primary-color;
+                text-align: center;
+            }
+    
+            .login-button {
+                font-size: clamp(0.85rem, calc(1vw + 0.3rem), 1rem);
+    
+                & > a {
+                    display: grid;
+                    place-items: center;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+    
+}
+
+.logged_user {
+    @extend .flex-column;
+    align-items: center;
+    font-size: $text-clamp-xs;
+    gap: 0.8rem;
+
+    .user_container {
+        @extend .flex-column;
+        align-items: center;
+        gap: 0.25rem;
+    }
+
+    .user_icon {
+        width: clamp(32px, 3vw, 48px);
+        height: clamp(32px, 3vw, 48px);
+    }
+
+    .logout_button {
+        color: $primary-color;
+        font-size: $text-clamp-xs;
+        text-align: center;
+        font-weight: initial;
+    }
+}

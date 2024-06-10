@@ -48,14 +48,14 @@ class ChangePasswordFormType extends AbstractType
             ])
             ->add('save', SubmitType::class, [
                 'label' => 'Valider',
-                'attr' => ['class' => 'highlighted-button']
+                'attr' => ['class' => 'button--highlighted']
             ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'attr' => ['class' => 'form_reset_change_password'],
+            'attr' => ['class' => 'form-reset-change-password'],
         ]);
     }
 }

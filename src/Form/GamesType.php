@@ -32,10 +32,11 @@ class GamesType extends AbstractType
             ->add('difficulty', RangeType::class, [
                 'attr' => [
                     'min' => 1,
-                    'max' => 5
+                    'max' => 5,
+                    'data-controller' => 'input-range',
+                    'class' => 'input-range'
                 ],
-                'label' => 'Difficulté',
-                'row_attr' => ['class' => 'form-group']
+                'label' => 'Difficulté'
             ])
             ->add('pictureFile', FileType::class, [
                 'label' => 'Illustration',
@@ -49,22 +50,22 @@ class GamesType extends AbstractType
             ->add('riddle', CollectionType::class, [
                 'entry_type' => RiddleType::class,
                 'entry_options' => [
-                    'label_attr' => ['class' => 'riddle_main_label'],
+                    'label_attr' => ['class' => 'riddle-label'],
                 ],
                 'by_reference' => false,
                 'allow_add' => true,
                 'allow_delete' => true,
                 'prototype' => true,
                 'label' => 'Enigmes',
-                'label_attr' => ['class' => 'riddles_label'],
-                'row_attr' => ['class' => 'riddles_container'],
+                'label_attr' => ['class' => 'riddles-list-label'],
+                'row_attr' => ['class' => 'riddles-container'],
                 'attr' => [
                     'data-controller' => 'form-collection',
                 ]
             ])
             ->add('save', SubmitType::class, [
                 'label' => 'Enregistrer',
-                'attr' => ['class' => 'highlighted-button'],
+                'attr' => ['class' => 'button--highlighted'],
             ]);
     }
 
@@ -72,6 +73,7 @@ class GamesType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Games::class,
+            'attr' => ['id' => 'game-form']
         ]);
     }
 }
