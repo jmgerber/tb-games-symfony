@@ -28,9 +28,11 @@ export default class extends Controller {
             // Diplays the difficulty of each game with stars
             const difficultyDisplay = card.querySelector('.game-difficulty')
             const difficultyLevel = difficultyDisplay.dataset['difficulty']
-            gameDifficultyShow(difficultyLevel).forEach(element => {
-                difficultyDisplay.appendChild(element)
-            })
+            if (difficultyDisplay.innerHTML === "") {
+                gameDifficultyShow(difficultyLevel).forEach(element => {
+                    difficultyDisplay.appendChild(element)
+                })
+            }   
 
             // Adds a click event to each game card to display the modal
             card.addEventListener('click', this.showModalDetails.bind(this))
