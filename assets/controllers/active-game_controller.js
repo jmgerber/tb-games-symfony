@@ -47,6 +47,7 @@ export default class extends Controller {
                         this.submitRiddleButton.disabled = true
                         form.style.display = 'none'
                         clearInterval(this.intervalId)
+                        this.createEndGameButton()
                     }
                 } else {
                     // Handle bad answer message
@@ -155,10 +156,20 @@ export default class extends Controller {
 
         const clickHandler = () => {
             this.displayRiddle(nextRiddle)
+            // Remove event to prevent double events sending.
             this.nextRiddleButton.removeEventListener("click", clickHandler)
         }
 
         this.nextRiddleButton.addEventListener("click", clickHandler)
+    }
+
+    createEndGameButton() {
+        const endGameButton = document.createElement('a')
+        endGameButton.textContent = "Accueil"
+        endGameButton.classList.add("button--highlighted", "button--small")
+        endGameButton.setAttribute("href", "/dashboard")
+
+        this.riddleContainer.append(endGameButton)
     }
 
     /**
