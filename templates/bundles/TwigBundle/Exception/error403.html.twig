@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="exception-error-container">
+		<h1>Erreur 403</h1>
+
+		<p>L'accès à cette page ne vous est pas autorisé.</p>
+		<a href="{{ path('home.index') }}" class="button--highlighted button--small">Accueil</a>
+	</div>
+{% endblock %}

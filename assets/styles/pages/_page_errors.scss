@@ -1,0 +1,16 @@
+.exception-error-container {
+    @extend .flex-column;
+    align-items: center;
+
+    h1 {
+        color: $primary-color;
+        font-size: $text-clamp-xxl;
+        margin-block: 52px;
+    }
+
+    p {
+        margin: 0 2rem 4rem;
+        font-size: $text-clamp-m;
+        text-align: center;
+    }
+}

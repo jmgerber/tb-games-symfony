@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="exception-error-container">
+		<h1>Erreur 404</h1>
+
+		<p>La page à laquelle vous essayez d'accéder n'existe pas. Vérifier l'URL ou retourner à la page d'accueil.</p>
+		<a href="{{ path('home.index') }}" class="button--highlighted button--small">Accueil</a>
+	</div>
+{% endblock %}

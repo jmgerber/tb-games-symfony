@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="exception-error-container">
+		<h1>Erreur {{ status_code }}</h1>
+
+		<p>Le site a rencontré une erreur. Merci de réessayer plus tard ou retournez à la page d'accueil.</p>
+		<a href="{{ path('home.index') }}" class="button--highlighted button--small">Accueil</a>
+	</div>
+{% endblock %}
