@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block body %}
-	<div class="container dashboard-container" data-controller="dashboard">
+	<div class="container dashboard-container">
 		<h1 class="dashboard-title">Mon tableau de bord</h1>
 		<section class="dashboard-section">
 			<aside class="aside-user-infos">
@@ -28,7 +28,7 @@
 				</div>
 			</aside>
 
-			<div class="game-card-container">
+			<div class="game-card-container" data-controller="dashboard">
 				{% for game in games %}
 					{{ include('partials/game_card.html.twig') }}
 				{% endfor %}

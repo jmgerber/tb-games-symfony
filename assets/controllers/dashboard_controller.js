@@ -5,6 +5,9 @@ import gameDifficultyShow from './difficulty-display_controller.js';
  * This Stimulus controller manages a game card container, fetching game data and displaying modal details on card click.
  */
 export default class extends Controller {
+    initialize() {
+        this.initialized = false
+    }
 
     /**
      * Fetches game data from the API on controller initialization.
@@ -13,12 +16,22 @@ export default class extends Controller {
      * @returns {Promise | null} Promise resolving to fetched game data or null on error.
      */
     async connect() {
+        if (this.initialized) {
+            return
+        }
+        
         this.games = await this.fetchGameData()
 
-        if (!this.games) return
+        if(!this.games) return
 
         this.initializeModalElements()
         this.setupGameCards()
+
+        this.initialized = true
+    }
+
+    disconnect() {
+        this.initialized = false  // Resets the initialization flag
     }
 
     /**
@@ -27,8 +40,16 @@ export default class extends Controller {
      * @returns {Promise | null} Promise resolving to fetched game data or null on error.
      */
     async fetchGameData() {
+        if (this.gamesData) {
+            console.log("Using cached game data");
+            return this.gamesData;
+        }
+
         try {
             const response = await fetch('http://localhost:8000/api/games')
+            if (!response.ok) {
+                throw new Error(`Network response was not ok: ${response.status}`)
+            }
             this.gamesData = await response.json()
             return this.gamesData
         } catch (error) {
