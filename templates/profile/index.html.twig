@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Bonjour
+	{{ app.user.username }}
+	!
+{% endblock %}
+
+{% block body %}
+	<div class="container profile-container" data-controller="profile-edit">
+		<h1 class="profile-title">Mon profil</h1>
+		<section class="profile-section">
+			<aside>
+				<img src="{{ app.user.picture ? vich_uploader_asset(app.user, 'pictureFile') : "/images/user_icon.svg" }}"
+				alt=" image de profil" class="profile-image">
+				{{ form(editPictureForm) }}
+			</aside>
+			<div class="profile-infos-container">
+				<h2>Mes informations</h2>
+				<div class="profile-subsection">
+					<h3 class="profile-subtitle">Adresse email</h3>
+					<p id="profile-current-email">{{ app.user.email }}</p>
+					<p class="email-change-link">Changer mon adresse email</p>
+					<div class="change-form" style="display: none;">
+						{{ form_start(editEmailForm, {'attr': {'class': 'profile-edit-form'}}) }}
+						{{ form_row(editEmailForm.email) }}
+						<div class="buttons-container">
+							{{ form_rest(editEmailForm) }}
+						</div>
+						{{ form_end(editEmailForm) }}
+					</div>
+
+				</div>
+				<div class="profile-subsection">
+					<h3 class="profile-subtitle">Mot de passe</h3>
+					<p class="password-change-link">Changer mon mot de passe</p>
+					<div class="change-form" style="display: none;">
+						{{ form_start(editPasswordForm, {'attr': {'class': 'profile-edit-form'}}) }}
+						{{ form_row(editPasswordForm.plainPassword) }}
+						<div class="buttons-container">
+							{{ form_rest(editPasswordForm) }}
+						</div>
+						{{ form_end(editPasswordForm) }}
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+{% endblock %}

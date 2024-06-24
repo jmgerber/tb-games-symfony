@@ -13,3 +13,7 @@ vich_uploader:
             uri_prefix: /images/riddlesPictures
             upload_destination: '%kernel.project_dir%/public/images/riddlesPictures'
             namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+        usersPictures:
+            uri_prefix: /images/usersPictures
+            upload_destination: '%kernel.project_dir%/public/images/usersPictures'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer

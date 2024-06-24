@@ -1,0 +1,95 @@
+.profile-title {
+    font-family: 'Mate SC', sans-serif;
+    font-weight: 300;
+    font-size: $text-clamp-xl;
+    margin-bottom: 0.5rem;
+}
+
+.profile-container {
+    margin: 32px 6vw 0;
+}
+
+.profile-section {
+    display: flex;
+    border: 4px solid $primary-color;
+    padding: clamp(1.5rem, calc(2vw + 0.5rem), 2.25rem);
+    gap: 3vw;
+
+    aside {
+        @extend .flex-column;
+        align-items: center;
+        position: relative;
+        width: clamp(92px, 10vw, 192px);
+        height: clamp(92px, 10vw, 192px);
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    aside:hover {
+        & .profile-image {
+            filter: brightness(0.5);
+        }
+        & form[class=picture-edit-form] .edit-picture-label {
+            display: block;
+        }
+    }
+
+    h2 {
+        font-size: $text-clamp-xl;
+        margin-bottom: 2rem;
+        font-family: 'Mate SC', sans-serif;
+    }
+
+    form[class="picture-edit-form"] {
+        position: absolute;
+        text-align: center;
+
+        .edit-picture-label {
+            display: none;
+            padding: 33% 0.25rem;
+            font-size: $text-clamp-xs;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        input {
+            display: none;
+        }
+    }
+
+    .profile-subsection {
+        margin-bottom: 2rem;
+        
+        .profile-subtitle {
+            font-size: $text-clamp-l;
+            font-family: 'Mate SC', sans-serif;
+            margin-bottom: 1.25rem;
+        }
+
+        .email-change-link, .password-change-link {
+            color: $primary-color;
+            text-decoration: underline;
+            margin-top: 0.75rem;
+            font-size: $text-clamp-s;
+            cursor: pointer;
+        }
+
+        .profile-edit-form {
+            align-items: baseline;
+        }
+        
+        .buttons-container {
+            display: flex;
+            gap: 1vw;
+        }
+    }
+
+    #profile-current-email {
+        font-size: $text-clamp-s;
+        margin-bottom: 1rem;
+    }
+}

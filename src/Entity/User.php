@@ -7,13 +7,16 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: '`user`')]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_EMAIL', fields: ['email'])]
 #[UniqueEntity(fields: ['email'], message: 'Cet email est déjà utilisé.')]
 #[UniqueEntity(fields: ['username'], message: 'Ce nom de compte est déjà utilisé.')]
+#[Vich\Uploadable()]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -25,7 +28,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Assert\NotBlank]
     #[Assert\Email]
     private ?string $email = '';
-
 
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank]
@@ -46,6 +48,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: 'boolean')]
     private $isVerified = false;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $picture = null;
+
+    #[Vich\UploadableField(mapping: 'usersPictures', fileNameProperty: 'picture')]
+    #[Assert\Image()]
+    private ?File $pictureFile = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?\DateTimeImmutable $updatedAt = null;
+
+    // public function __construct()
+    // {
+    //     // Définir une image de profil par défaut
+    //     $this->picture = '/images/user_icon.svg';
+    // }
 
     public function getId(): ?int
     {
@@ -144,5 +162,35 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->username = $username;
 
         return $this;
+    }
+
+    public function getPicture(): ?string
+    {
+        return $this->picture;
+    }
+
+    public function setPicture(?string $picture): static
+    {
+        $this->picture = $picture;
+
+        return $this;
+    }
+
+    public function getPictureFile()
+    {
+        return $this->pictureFile;
+    }
+
+    public function setPictureFile(?File $pictureFile = null): void
+    {
+        $this->pictureFile = $pictureFile;
+        if (null !== $pictureFile) {
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+    public function __sleep()
+    {
+        return ['id', 'email', 'username', 'roles', 'password', 'isVerified', 'picture', 'updatedAt'];
     }
 }
