@@ -73,24 +73,26 @@
     
 }
 
-.logged_user {
+.logged-user {
     @extend .flex-column;
     align-items: center;
     font-size: $text-clamp-xs;
     gap: 0.8rem;
 
-    .user_container {
+    .user-container {
         @extend .flex-column;
         align-items: center;
         gap: 0.25rem;
+        padding-inline: 0.5rem;
     }
 
-    .user_icon {
+    .user-icon {
         width: clamp(32px, 3vw, 48px);
         height: clamp(32px, 3vw, 48px);
+        object-fit: cover;
     }
 
-    .logout_button {
+    .logout-button {
         color: $primary-color;
         font-size: $text-clamp-xs;
         text-align: center;
