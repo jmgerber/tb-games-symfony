@@ -23,14 +23,12 @@
 
 		</ul>
 		{% if app.user %}
-			<div class="logged_user">
-				<div class="user_container">
-					<object type="image/svg+xml" data="{{ asset('images/user_icon.svg') }}" class="user_icon">
-						Icone d'utilisateur
-					</object>
+			<div class="logged-user">
+				<a class="user-container" href="{{ path('app.profile') }}">
+					<img src="{{ app.user.picture ? vich_uploader_asset(app.user, 'pictureFile') : "/images/user_icon.svg" }}" alt="Image de profil" class="user-icon">
 					<p class="username">{{ app.user.username }}</p>
-				</div>
-				<a href="{{ path('app.logout') }}" class="logout_button">Se déconnecter</a>
+				</a>
+				<a href="{{ path('app.logout') }}" class="logout-button">Se déconnecter</a>
 			</div>
 		{% else %}
 			<ul class="header-nav--connection-links {{app.current_route == 'app.register' ? 'register-page' : '' }}">

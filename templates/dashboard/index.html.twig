@@ -11,7 +11,7 @@
 			<aside class="aside-user-infos">
 				<div class="user-card">
 					<div class="user-infos">
-						<img src="{{ asset('images/user_icon.svg') }}" alt="Icône de l'utilisateur">
+						<img src="{{ app.user.picture ? vich_uploader_asset(app.user, 'pictureFile') : "/images/user_icon.svg" }}" alt="Icône de l'utilisateur">
 						<p>{{ app.user.username }}</p>
 					</div>
 					<p class="user-stats">Parties jouées : 2</p>
