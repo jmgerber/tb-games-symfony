@@ -15,6 +15,15 @@
     padding: clamp(1.5rem, calc(2vw + 0.5rem), 2.25rem);
     gap: 3vw;
 
+    @media (max-width: $breakpoint-mobile) {
+        flex-direction: column;
+
+        .aside-user-infos {
+            display: flex;
+            gap: 2vw;
+        }
+    }
+
     .user-card {
         @extend .flex-column;
         align-items: center;
@@ -23,7 +32,11 @@
         padding: 0.75rem;
         border: 2px solid $primary-color;
         margin-bottom: 2rem;
-        border-radius: 4px;
+
+        @media (max-width: $breakpoint-mobile) {
+            width: 50%;
+            margin-bottom: inherit;
+        }
     }
 
     .user-infos {
@@ -52,7 +65,6 @@
         align-items: center;
         padding: 0.75rem;
         border: 2px solid $primary-color;
-        border-radius: 4px;
         height: max-content;
 
         .friend-list-title {
@@ -66,6 +78,11 @@
             align-self: flex-start;
             gap: 0.75rem;
             font-size: $text-clamp-xs;
+        }
+
+        @media (max-width: $breakpoint-mobile) {
+            width: 50%;
+            height: inherit;
         }
     }
 }

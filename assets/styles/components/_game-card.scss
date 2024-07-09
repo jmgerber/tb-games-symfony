@@ -3,6 +3,10 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, clamp(252px, calc(24vw + 12px), 320px));
     grid-gap: 2vw;
+    @media (max-width: $breakpoint-mobile) {
+        justify-content: center;
+        grid-template-columns: repeat(auto-fit, clamp(252px, calc(56vw + 24px), 360px));
+    }
 }
 
 .game-card {
@@ -69,6 +73,13 @@
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
+        @media (max-width: $breakpoint-mobile){
+            -webkit-line-clamp: 4;
+        }
+    }
+
+    @media (max-width: $breakpoint-mobile){
+        height: clamp(302px, calc(54vw + 62px), 370px);
     }
 }
 
