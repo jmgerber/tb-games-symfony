@@ -44,9 +44,16 @@
         font-family: 'Mate SC', sans-serif;
     }
 
-    form[class="picture-edit-form"] {
+    form[class=picture-edit-form] {
         position: absolute;
         text-align: center;
+        width: 100%;
+        height: 100%;
+
+        * {
+            height: 100%;
+            width: 100%;
+        }
 
         .edit-picture-label {
             display: none;
@@ -54,6 +61,17 @@
             font-size: $text-clamp-xs;
             font-weight: 500;
             cursor: pointer;
+            // Styling error message for file input
+            + ul {
+                position: absolute;
+                top: calc(100% + 0.5rem);
+                height: initial;
+
+                > li {
+                    color: $error-color;
+                    font-size: $text-clamp-xs;
+                }
+            }
         }
 
         input {
